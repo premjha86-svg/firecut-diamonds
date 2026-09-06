@@ -2,109 +2,615 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#050505">
-<title>FIRECUT — Diamonds & Jewellery by Bhavesh Jha</title>
-<meta name="description" content="Firecut Diamonds & Jewellery — Natural and Lab-Grown diamonds, solitaires, every shape, size, colour and clarity.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#B0121A">
+<title>Firecut — Natural & Lab-Grown Diamonds, Colour Stones, Custom Jewellery | By Bhavesh Jha</title>
+<!-- GOOGLE SHEETS INTEGRATION
+Set APPS_SCRIPT_URL below after deploying the supplied Google Apps Script.
+Every enquiry submitted here is sent to WhatsApp AND logged to your Google Sheet.
+This site does not sell anything online — there is no cart, checkout or payment
+anywhere on it. It exists purely to turn a visitor into a WhatsApp enquiry. -->
+<meta name="description" content="Firecut Diamonds & Jewellery by Bhavesh Jha — share your requirement for natural diamonds, lab-grown diamonds, colour stones or fully customised jewellery, and get options and final pricing over WhatsApp. Not an online store — every enquiry is handled personally. 20+ years in the trade.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#050505;--panel:#0b0b0b;--gold:#e3bd6c;--gold2:#fff0bb;--red:#8d101c;--text:#f8f1e4;--muted:#b9b0aa;--line:rgba(227,189,108,.28);--ease:cubic-bezier(.2,.8,.2,1)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",Arial,sans-serif}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}img{display:block;max-width:100%}
-.nav{position:fixed;top:0;left:0;right:0;height:86px;z-index:50;padding:14px 4vw;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(0,0,0,.72),transparent);transition:.4s}
-.nav.scrolled{background:rgba(5,5,5,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:12px}.brand img{width:58px;height:58px;object-fit:contain;filter:drop-shadow(0 5px 16px rgba(227,189,108,.28))}.brand strong{display:block;font-family:"Cormorant Garamond",serif;font-size:32px;letter-spacing:.12em;font-weight:600}.brand small{display:block;font-size:8px;letter-spacing:.22em;color:var(--gold2);margin-top:3px}
-.links{display:flex;gap:28px;font-size:11px}.links a{opacity:.85}.links a:hover{color:var(--gold2)}
-.wa{border:1px solid var(--gold);border-radius:99px;padding:12px 18px;color:var(--gold2);font-size:10px;letter-spacing:.13em;text-transform:uppercase}
-.hero{position:relative;min-height:100svh;overflow:hidden;display:flex;align-items:center;background:#050505}.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:contrast(1.08) saturate(.88);opacity:.8}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.73) 40%,rgba(0,0,0,.16) 74%,rgba(0,0,0,.58) 100%),linear-gradient(0deg,rgba(0,0,0,.76),transparent 45%,rgba(0,0,0,.32))}
-.hero-copy{position:relative;z-index:3;width:58%;padding:170px 4vw 90px}.eyebrow{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px}
-.hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(65px,8vw,126px);line-height:.78;letter-spacing:-.04em;font-weight:500;margin:0}.hero h1 em{display:block;color:var(--gold2);font-size:.68em;margin-top:22px}
-.hero p{max-width:560px;color:#ded3cd;font-size:14px;line-height:1.75;margin:30px 0}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 24px;border-radius:99px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:.3s}.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1b1005;box-shadow:0 15px 40px rgba(227,189,108,.22)}.btn.outline{border:1px solid var(--gold);color:var(--gold2);background:rgba(0,0,0,.18)}.btn:hover{transform:translateY(-4px)}
-.trust{display:flex;gap:30px;margin-top:40px;flex-wrap:wrap}.trust b{font-family:"Cormorant Garamond",serif;font-size:27px;color:var(--gold2);margin-right:6px}.trust span{font-size:9px;color:#c3b8b2}
-.hero-sign{position:absolute;right:5vw;bottom:9%;z-index:5;text-align:right}.hero-sign b{font-family:"Cormorant Garamond",serif;color:var(--gold2);font-style:italic;font-size:42px;font-weight:500}.hero-sign small{display:block;font-size:9px;letter-spacing:.25em}
-.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#080808;overflow:hidden;white-space:nowrap}.track{display:inline-flex;gap:65px;padding:15px 0;font-size:9px;letter-spacing:.28em;color:var(--gold2);animation:marquee 22s linear infinite}@keyframes marquee{to{transform:translateX(-50%)}}
-.section{padding:110px 4vw;background:var(--bg)}.section.goldbg{background:linear-gradient(145deg,#0a0805,#050505)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:48px}.eyebrow.dark{color:var(--gold)}h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(52px,6vw,92px);line-height:.84;margin:0;letter-spacing:-.04em}.lead{max-width:420px;color:var(--muted);font-size:13px;line-height:1.8}
-.dual{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{min-height:300px;border:1px solid var(--line);position:relative;overflow:hidden;background:#090909}.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;transition:.7s}.card:hover img{transform:scale(1.05);opacity:.68}.card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.25))}.card-content{position:relative;z-index:2;padding:45px;min-height:300px;display:flex;flex-direction:column;justify-content:end}.card h3{font-family:"Cormorant Garamond",serif;font-size:44px;margin:0 0 8px;color:var(--gold2)}.card p{max-width:330px;color:#d5cbc6;font-size:12px;line-height:1.65}
-.shapes{display:grid;grid-template-columns:repeat(10,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.shape{background:#070707;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;transition:.3s}.shape:hover{background:#17110a;transform:translateY(-5px);z-index:2}.diamond{width:56px;height:56px;border:1px solid var(--gold);transform:rotate(45deg);position:relative;box-shadow:0 0 22px rgba(227,189,108,.08)}.diamond:before{content:"";position:absolute;inset:9px;border:1px solid rgba(255,240,187,.55)}.round .diamond{border-radius:50%;transform:none}.shape span{font-size:9px;letter-spacing:.15em;text-transform:uppercase}
-.custom{border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;min-height:350px;overflow:hidden}.custom .copy{padding:50px;background:linear-gradient(145deg,#180b0e,#080506)}.custom h3{font-family:"Cormorant Garamond",serif;font-size:56px;line-height:.86;font-weight:500;margin:0 0 20px;color:var(--gold2)}.custom p{color:#c8bdb8;line-height:1.8;font-size:12px}.custom .visual{position:relative;overflow:hidden}.custom .visual img{width:100%;height:100%;object-fit:cover}.steps{position:absolute;bottom:20px;right:20px;left:20px;display:flex;gap:8px}.step{background:rgba(0,0,0,.7);border:1px solid var(--line);padding:12px;flex:1;font-size:9px;color:#fff}.step b{display:block;color:var(--gold2);margin-bottom:4px}
-.founder{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;align-items:center}.founder-photo{width:100%;height:560px;object-fit:cover;object-position:center top;border:1px solid var(--line);filter:saturate(.8)}.quote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:30px;color:var(--gold2);line-height:1.15;margin-top:28px}
-.inquiry{background:linear-gradient(135deg,#20060b,#700d19);display:grid;grid-template-columns:.85fr 1.15fr;gap:60px}.form{display:grid;gap:12px}.field{display:grid;grid-template-columns:1fr 1fr;gap:12px}input,select,textarea{width:100%;background:#0b0709;color:#fff;border:1px solid rgba(227,189,108,.25);padding:15px;outline:0}input:focus,select:focus,textarea:focus{border-color:var(--gold)}textarea{min-height:120px}
-.final{text-align:center;padding:150px 4vw;background:radial-gradient(circle at 50% 0,#3b0810,#050505 60%)}.final p{max-width:620px;margin:25px auto 35px;color:var(--muted);line-height:1.8}
-footer{padding:50px 4vw 25px;border-top:1px solid var(--line);display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:35px;background:#030303}footer h4{color:var(--gold);font-size:9px;letter-spacing:.25em;text-transform:uppercase}footer p,footer a{font-size:11px;line-height:2;color:#9d918c}.copyright{grid-column:1/-1;border-top:1px solid #222;padding-top:18px;font-size:9px;color:#625957}
-.reveal{opacity:0;transform:translateY(28px);transition:.8s var(--ease)}.reveal.show{opacity:1;transform:none}
-.modal{display:none;position:fixed;inset:0;z-index:100;place-items:center;padding:20px}.modal.open{display:grid}.modal:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(12px)}.modal-card{position:relative;width:min(550px,100%);background:var(--text);color:#211719;border:1px solid var(--gold);padding:50px;text-align:center}.modal-card h2{color:var(--red)}.modal-card strong{display:block;color:var(--red);margin:15px 0}.close{position:absolute;right:14px;top:10px;border:0;background:none;font-size:26px;color:var(--red)}
-@media(max-width:900px){.nav{height:70px;padding:9px 16px}.links{display:none}.brand img{width:44px;height:44px}.brand strong{font-size:25px}.hero-copy{width:100%;padding:130px 20px 80px}</style>
+:root{
+  --red:#B0121A; --red-deep:#7A0C15; --red-bright:#D2001C; --red-pale:#FBEAEA;
+  --ink:#181312; --paper:#FFFFFF; --off:#FFF8F7;
+  --ease:cubic-bezier(.22,.8,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Space Grotesk",Arial,sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--red);color:#fff}
+.cursor{position:fixed;z-index:60;width:16px;height:16px;border:1px solid var(--red);border-radius:50%;pointer-events:none;mix-blend-mode:normal;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s}
+.cursor.on-dark{border-color:#fff}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;height:82px;padding:14px 4.5vw;display:flex;align-items:center;justify-content:space-between;color:#fff;transition:.4s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:#fff;color:var(--ink);border-bottom-color:rgba(0,0,0,.08);box-shadow:0 4px 24px rgba(0,0,0,.05)}
+.brand{display:flex;align-items:center;gap:12px;min-width:210px}
+.brand img{width:44px;height:44px;object-fit:cover;border-radius:50%}
+.brand-text{line-height:.88}
+.brand-text b{font-family:"Fraunces",serif;font-size:26px;letter-spacing:-.01em;font-weight:600}
+.brand-text small{display:block;font-size:8px;letter-spacing:.18em;margin-top:6px;opacity:.8}
+.links{display:flex;gap:24px;font-size:12px;font-weight:500}
+.links a{opacity:.9;position:relative;white-space:nowrap}
+.links a:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:2px;background:currentColor;transition:.3s}
+.links a:hover:after{width:100%}
+.nav-cta{border:1.5px solid currentColor;padding:11px 18px;border-radius:2px;font-size:11.5px;font-weight:600;letter-spacing:.02em;transition:.3s;white-space:nowrap}
+.nav.scrolled .nav-cta{background:var(--red);border-color:var(--red);color:#fff}
+.nav:not(.scrolled) .nav-cta:hover{background:#fff;color:var(--red)}
+.burger{display:none;width:36px;height:36px;border:1.5px solid currentColor;border-radius:2px;background:none;cursor:pointer;position:relative}
+.burger span{position:absolute;left:9px;right:9px;height:2px;background:currentColor;top:15px;transition:.3s}
+.burger span:last-child{top:21px}
+.burger.open span:first-child{transform:rotate(45deg);top:18px}
+.burger.open span:last-child{transform:rotate(-45deg);top:18px}
+.mobile-menu{position:fixed;inset:82px 0 0 0;background:#fff;z-index:39;display:none;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;padding:0 8vw;font-family:"Fraunces",serif;font-size:34px;font-weight:500;color:var(--ink)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:10px 0;border-bottom:1px solid rgba(0,0,0,.06);width:100%}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--red-deep)}
+.hero-video-wrap{position:absolute;inset:0;z-index:0}
+.hero-video-wrap video{width:100%;height:100%;object-fit:cover;opacity:.55;filter:saturate(.9)}
+.hero-video-wrap:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(122,12,21,.96) 0%,rgba(176,18,26,.88) 45%,rgba(122,12,21,.7) 100%)}
+.hero-copy{position:relative;z-index:3;padding:150px 5vw 90px;max-width:760px}
+.kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff;opacity:.85;margin-bottom:20px;font-weight:600}
+.hero h1{font-family:"Fraunces",serif;font-size:clamp(44px,6.2vw,90px);line-height:.98;font-weight:500;letter-spacing:-.02em;margin:0;color:#fff}
+.hero h1 i{font-style:italic;font-weight:500}
+.hero p{font-size:16px;line-height:1.75;max-width:540px;margin:26px 0;color:#ffe9e8}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border-radius:2px;font-size:12.5px;font-weight:600;letter-spacing:.01em;transition:.3s var(--ease);cursor:pointer;border:1.5px solid transparent}
+.btn.primary{background:#fff;color:var(--red)}
+.btn.primary:hover{transform:translateY(-3px);background:var(--ink);color:#fff}
+.btn.secondary{border-color:rgba(255,255,255,.7);color:#fff}
+.btn.secondary:hover{transform:translateY(-3px);border-color:#fff;background:rgba(255,255,255,.1)}
+.btn.on-light{border-color:var(--red);color:var(--red);background:#fff}
+.btn.on-light:hover{transform:translateY(-3px);background:var(--red);color:#fff}
+.hero-proof{display:flex;gap:26px;margin-top:44px;flex-wrap:wrap}
+.proof{display:flex;flex-direction:column;gap:4px;font-size:10.5px;color:#ffe9e8}
+.proof strong{font-family:"Fraunces",serif;font-size:26px;color:#fff;font-weight:500}
+.no-checkout{margin-top:34px;display:inline-flex;align-items:center;gap:10px;font-size:11px;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);padding:10px 16px;border-radius:2px}
+.no-checkout svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:1.6;flex-shrink:0}
+
+/* SEAL */
+.seal-wrap{position:absolute;z-index:4;right:6vw;bottom:9%;width:150px;height:150px;animation:spin 22s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.seal-wrap svg{width:100%;height:100%}
+.seal-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.seal-center span{font-family:"Fraunces",serif;font-style:italic;color:#fff;font-size:13px;text-align:center;line-height:1.1}
+
+.scroll{position:absolute;z-index:5;bottom:26px;left:5vw;color:#fff;font-size:9px;letter-spacing:.22em;display:flex;align-items:center;gap:12px;font-weight:600}
+.scroll i{width:44px;height:1px;background:#fff;display:block;animation:scrollLine 1.5s infinite}
+@keyframes scrollLine{0%,100%{width:25px}50%{width:55px}}
+
+.ticker{background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap}
+.ticker-track{display:inline-flex;gap:50px;padding:14px 0;animation:marquee 28s linear infinite;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.ticker-track span:nth-child(odd){color:var(--red-bright)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+.section{padding:110px 5vw;position:relative}
+.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:50px}
+.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px;font-weight:700}
+h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(38px,5vw,72px);line-height:.95;letter-spacing:-.02em;margin:0;color:var(--ink)}
+h2 i{font-style:italic;color:var(--red)}
+.section-head p{max-width:380px;color:#5a5250;line-height:1.7;font-size:13px}
+
+/* NOT-A-STORE STRIP */
+.clarify{background:var(--red-pale);padding:26px 5vw;display:flex;align-items:center;justify-content:center;gap:16px;text-align:center;flex-wrap:wrap}
+.clarify svg{width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:1.5;flex-shrink:0}
+.clarify p{margin:0;font-size:13px;color:var(--ink);max-width:760px;line-height:1.6}
+.clarify strong{color:var(--red)}
+
+/* CATEGORY VIDEO CARDS */
+.categories{background:var(--ink)}
+.categories h2{color:#fff}
+.categories .eyebrow{color:var(--red-bright)}
+.categories .section-head p{color:#c9c1bf}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.08)}
+.cat-card{position:relative;min-height:440px;overflow:hidden;display:flex;align-items:flex-end;background:#100c0b}
+.cat-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease);opacity:.65}
+.cat-card:hover video{transform:scale(1.08)}
+.cat-card:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(122,12,21,.94) 0%,rgba(16,12,11,.55) 55%,rgba(16,12,11,.2) 100%);z-index:1}
+.cat-body{position:relative;z-index:2;padding:30px 24px;color:#fff}
+.cat-tag{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#ffb3b0;margin-bottom:10px;display:block;font-weight:700}
+.cat-body h3{font-family:"Fraunces",serif;font-size:30px;font-weight:500;margin:0 0 10px;line-height:1}
+.cat-body p{font-size:12px;line-height:1.6;color:#f0dcdb;margin:0 0 16px;max-width:230px}
+.cat-link{font-size:11px;font-weight:600;color:#fff;border-bottom:1.5px solid rgba(255,255,255,.6);padding-bottom:3px;display:inline-block}
+.cat-link:hover{border-color:#fff}
+
+/* REAL DIAMOND SHAPE GALLERY */
+.gallery{background:var(--off)}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:44px}
+.gallery-grid figure{margin:0;position:relative;overflow:hidden;background:#eee;aspect-ratio:1/1}
+.gallery-grid figure:nth-child(3n+1){aspect-ratio:1/1.25}
+.gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.gallery-grid figure:hover img{transform:scale(1.06)}
+.gallery-note{font-size:11.5px;color:#8a7f7c;text-align:center;margin:-24px 0 40px}
+.shape-picker{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.shape-pill{border:1.5px solid var(--ink);color:var(--ink);padding:12px 22px;border-radius:2px;font-size:12px;font-weight:600;cursor:pointer;transition:.25s}
+.shape-pill:hover,.shape-pill.active{background:var(--red);border-color:var(--red);color:#fff}
+
+/* CERTIFICATION LABS */
+.labs{background:var(--paper)}
+.lab-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.08)}
+.lab-card{background:#fff;padding:30px 20px;text-align:center}
+.lab-card b{display:block;font-family:"Fraunces",serif;font-size:24px;color:var(--red);margin-bottom:8px}
+.lab-card span{font-size:11px;color:#5a5250;line-height:1.6}
+.lab-note{margin-top:24px;font-size:11.5px;color:#8a7f7c;text-align:center;max-width:600px;margin-left:auto;margin-right:auto}
+
+/* JOURNEY */
+.journey{background:var(--off)}
+.journey-track{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.08)}
+.j-step{background:var(--paper);position:relative;padding:0;overflow:hidden;min-height:330px;display:flex;flex-direction:column}
+.j-media{position:relative;height:180px;overflow:hidden;background:#170a0a}
+.j-media video{width:100%;height:100%;object-fit:cover;opacity:.72}
+.j-num{position:absolute;top:14px;left:16px;z-index:2;font-family:"Fraunces",serif;font-style:italic;font-size:14px;color:#fff}
+.j-body{padding:22px 22px 26px;flex:1}
+.j-body h4{font-family:"Fraunces",serif;font-size:22px;font-weight:500;margin:0 0 8px;color:var(--red)}
+.j-body p{font-size:12px;line-height:1.6;color:#5a5250;margin:0}
+
+.finder{background:#fff;display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.finder-card{background:var(--red);color:#fff;padding:52px;border-radius:2px;position:relative;overflow:hidden}
+.finder-card h3{font-family:"Fraunces",serif;font-size:46px;font-weight:500;line-height:.98;margin:0 0 20px}
+.finder-card p{color:#ffe1e0;font-size:13px;line-height:1.8;max-width:440px}
+.form{display:grid;gap:12px}
+.field{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+select,input,textarea{width:100%;padding:15px 14px;background:#fff;border:1.5px solid #e5dedc;color:var(--ink);font:inherit;font-size:12.5px;outline:none;transition:.25s;border-radius:2px}
+select:focus,input:focus,textarea:focus{border-color:var(--red)}
+textarea{min-height:105px;resize:vertical}
+.form button{border:0;justify-content:center;background:var(--red);color:#fff}
+.form button:hover{background:var(--ink)}
+
+.badges{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.08);margin-top:56px;border:1px solid rgba(0,0,0,.08)}
+.badge{background:var(--off);padding:28px 20px;text-align:center}
+.badge svg{width:32px;height:32px;stroke:var(--red);fill:none;stroke-width:1.4;margin-bottom:12px}
+.badge h5{font-family:"Fraunces",serif;font-size:18px;margin:0 0 8px;color:var(--ink);font-weight:500}
+.badge p{font-size:11px;line-height:1.6;color:#5a5250;margin:0}
+
+.story{background:var(--ink);color:#fff;display:grid;grid-template-columns:.75fr 1.25fr;gap:80px;align-items:center}
+.story h2{color:#fff}
+.story p{color:#d9cfcd;line-height:1.9;font-size:14px;max-width:560px}
+.story-img{width:100%;height:540px;object-fit:cover;object-position:50% 15%;filter:grayscale(.15);border-radius:2px}
+.signature-large{font-family:"Fraunces",serif;color:var(--red-bright);font-style:italic;font-size:42px;margin-top:22px;font-weight:500}
+
+.final{background:var(--red);color:#fff;text-align:center;padding:130px 5vw}
+.final h2{color:#fff;font-size:clamp(48px,6.6vw,100px)}
+.final p{max-width:640px;margin:22px auto 32px;line-height:1.8;color:#ffe1e0;font-size:14px}
+
+footer{background:var(--ink);color:#d9cfcd;padding:55px 5vw 25px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:45px}
+footer h4{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--red-bright);font-weight:700}
+footer p,footer a{font-size:12px;line-height:2;color:#b6aaa8}
+footer a:hover{color:#fff}
+.copyright{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-top:18px;font-size:9px;color:#7a706e;letter-spacing:.05em}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.show{opacity:1;transform:none}
+.stagger > *{opacity:0;transform:translateY(20px)}
+.stagger.show > *{animation:up .7s var(--ease) forwards}
+.stagger.show > *:nth-child(2){animation-delay:.06s}.stagger.show > *:nth-child(3){animation-delay:.12s}.stagger.show > *:nth-child(4){animation-delay:.18s}
+@keyframes up{to{opacity:1;transform:none}}
+
+.thankyou{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:25px;visibility:hidden;opacity:0;transition:.35s var(--ease)}
+.thankyou.open{visibility:visible;opacity:1}
+.thankyou-backdrop{position:absolute;inset:0;background:rgba(20,4,6,.78);backdrop-filter:blur(10px)}
+.thankyou-card{position:relative;width:min(540px,100%);background:#fff;padding:50px 42px;text-align:center;box-shadow:0 35px 100px rgba(0,0,0,.3);transform:translateY(20px) scale(.98);transition:.5s var(--ease)}
+.thankyou.open .thankyou-card{transform:none}
+.thankyou-mark{width:52px;height:52px;border:1.5px solid var(--red);border-radius:50%;display:grid;place-items:center;margin:0 auto 22px;color:var(--red);font-size:22px}
+.thankyou-card h2{font-size:56px;margin:4px 0 14px;font-family:"Fraunces",serif;color:var(--ink);font-weight:500}
+.thankyou-card p{font-size:14px;color:#5a5250;margin:0 0 10px}
+.thankyou-card strong{display:block;color:var(--red);font-size:15px;line-height:1.5}
+.thankyou-card span{display:block;color:#7a706e;font-size:11.5px;line-height:1.7;margin:14px auto 26px;max-width:400px}
+
+@media(max-width:1100px){
+ .links{display:none}.nav-cta{display:none}.burger{display:block}
+ .cat-grid{grid-template-columns:repeat(2,1fr)}
+ .gallery-grid{grid-template-columns:repeat(3,1fr)}
+ .lab-grid{grid-template-columns:repeat(3,1fr)}
+ .journey-track{grid-template-columns:repeat(2,1fr)}
+ .finder,.story{grid-template-columns:1fr}.story{gap:32px}.story-img{height:420px}
+ footer{grid-template-columns:1fr 1fr}
+ .badges{grid-template-columns:repeat(2,1fr)}
+ .seal-wrap{display:none}
+}
+@media(max-width:640px){
+ .nav{height:66px;padding:10px 5vw}.brand{min-width:0}.brand img{width:38px;height:38px}.brand-text b{font-size:19px}.brand-text small{font-size:6px}
+ .mobile-menu{inset:66px 0 0 0}
+ .hero-copy{padding:112px 6vw 64px}
+ .hero p{font-size:13.5px}
+ .hero-proof{gap:14px}.proof{font-size:9px}.proof strong{font-size:20px}
+ .section{padding:75px 6vw}.section-head{display:block}.section-head p{margin-top:20px}
+ .cat-grid{grid-template-columns:1fr}.cat-card{min-height:320px}
+ .gallery-grid{grid-template-columns:repeat(2,1fr)}
+ .lab-grid{grid-template-columns:repeat(2,1fr)}
+ .journey-track{grid-template-columns:1fr}
+ .finder-card{padding:34px 26px}.finder-card h3{font-size:38px}
+ .field{grid-template-columns:1fr}
+ .story{padding-left:6vw;padding-right:6vw}.story-img{height:320px}
+ .badges{grid-template-columns:1fr}
+ footer{grid-template-columns:1fr;padding:46px 7vw}
+ .cursor{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
+}
+</style>
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
+
 <header class="nav" id="nav">
-<a class="brand" href="#"><img src="assets/firecut-logo.png" alt="Firecut logo"><span><strong>FIRECUT</strong><small>DIAMONDS &amp; JEWELLERY · BY BHAVESH JHA</small></span></a>
-<nav class="links"><a href="#diamonds">Diamonds</a><a href="#shapes">Shapes</a><a href="#custom">Custom</a><a href="#about">About</a><a href="#inquiry">Contact</a></nav>
-<a class="wa" href="https://web.whatsapp.com/send?phone=919920169168&text=Hello%20Firecut%2C%20I%20have%20a%20diamond%20requirement.">WhatsApp Us →</a>
+  <a class="brand" href="#top">
+    <img src="assets/firecut-logo.jpg" alt="Firecut logo">
+    <span class="brand-text"><b>FIRECUT</b><small>DIAMONDS &amp; JEWELLERY · BY BHAVESH JHA</small></span>
+  </a>
+  <nav class="links">
+    <a href="#natural">Natural Diamonds</a><a href="#labgrown">Lab-Grown</a><a href="#custom">Custom Jewellery</a><a href="#colour">Colour Stones</a><a href="#labs">Certification</a><a href="#story">Why Firecut</a>
+  </nav>
+  <a class="nav-cta" href="https://web.whatsapp.com/send?phone=919920169168&text=Hi%20Firecut%2C%20I%27d%20like%20to%20know%20more.">WhatsApp Us ↗</a>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
 </header>
 
-<section class="hero">
-<video autoplay muted loop playsinline preload="metadata"><source src="assets/hero-video.mp4" type="video/mp4"></video>
-<div class="hero:orb"></div>
-<div class="hero-copy reveal">
-<div class="eyebrow">Real diamonds · Certified quality · Personal service</div>
-<h1>MORE THAN<br>A DIAMOND.<em>A BRILLIANCE YOU REMEMBER.</em></h1>
-<p>Natural and Lab-Grown diamonds for jewellers and retailers. Every shape, size, colour and clarity — selected around your exact requirement, with clear final pricing.</p>
-<div class="actions"><a class="btn gold" href="#inquiry">Find My Solitaire →</a><a class="btn outline" href="#shapes">Explore Collection →</a></div>
-<div class="trust"><div><b>20+</b><span>Years Experience</span></div><div><b>2 DAYS</b><span>Fast Delivery</span></div><div><b>1 CHAT</b><span>Options &amp; Price</span></div><div><b>100%</b><span>Transparent Pricing</span></div></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#natural">Natural Diamonds</a>
+  <a href="#labgrown">Lab-Grown</a>
+  <a href="#custom">Custom Jewellery</a>
+  <a href="#colour">Colour Stones</a>
+  <a href="#labs">Certification</a>
+  <a href="#story">Why Firecut</a>
+  <a href="#finder">Send a Requirement</a>
 </div>
-<div class="hero-sign"><b>Bhavesh Jha</b><small>FOUNDER · FIRECUT</small></div>
+
+<main id="top">
+<section class="hero" id="solitaires">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/solitaire-hero.jpg">
+      <source src="https://cdn.pixabay.com/video/2018/04/29/15890-267498503_large.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-copy">
+    <div class="kicker reveal">Natural · Lab-Grown · Colour Stones · Custom Jewellery</div>
+    <h1 class="reveal">AN ENQUIRY ON<br>WHATSAPP. <i>NOTHING ELSE.</i></h1>
+    <p class="reveal">Firecut isn't an online store — there's no cart, no checkout, no price tag on a page. Share what you need and our team gets back to you personally on WhatsApp with real options and a final price.</p>
+    <div class="actions reveal">
+      <a class="btn primary" href="https://web.whatsapp.com/send?phone=919920169168&text=Hi%20Firecut%2C%20I%27d%20like%20to%20share%20a%20requirement.">Share Your Requirement →</a>
+      <a class="btn secondary" href="#finder">Fill The Enquiry Form</a>
+    </div>
+    <div class="hero-proof reveal">
+      <div class="proof"><strong>20+</strong>Years in the diamond<br>&amp; jewellery trade</div>
+      <div class="proof"><strong>2 DAYS</strong>Fast diamond<br>delivery</div>
+      <div class="proof"><strong>7 DAYS</strong>Custom jewellery,<br>made to order</div>
+    </div>
+    <div class="no-checkout reveal">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" opacity="0"/><path d="m5 5 14 14M19 5 5 19"/></svg>
+      No online prices or checkout — every enquiry is answered by a person, on WhatsApp.
+    </div>
+  </div>
+  <div class="seal-wrap">
+    <svg viewBox="0 0 200 200">
+      <defs><path id="sealPath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+      <circle cx="100" cy="100" r="96" fill="none" stroke="#fff" stroke-width="1" opacity=".5"/>
+      <circle cx="100" cy="100" r="60" fill="none" stroke="#fff" stroke-width="1" opacity=".5"/>
+      <text font-size="10.5" letter-spacing="3" fill="#fff" font-family="Space Grotesk">
+        <textPath href="#sealPath" startOffset="0%">FIRECUT · ENQUIRY ONLY · NO ONLINE CHECKOUT · </textPath>
+      </text>
+    </svg>
+    <div class="seal-center"><span>Est.<br>Trust</span></div>
+  </div>
+  <div class="scroll"><i></i> SCROLL TO DISCOVER</div>
 </section>
 
-<div class="ticker"><div class="track">NATURAL DIAMONDS · LAB-GROWN DIAMONDS · SOLITAIRES · CUSTOM JEWELLERY · EVERY SHAPE · EVERY SIZE · EVERY COLOUR · EVERY CLARITY · NATURAL DIAMONDS · LAB-GROWN DIAMONDS · SOLITAIRES · CUSTOM JEWELLERY · EVERY SHAPE · EVERY SIZE · EVERY COLOUR · EVERY CLARITY · </div></div>
-
-<section class="section" id="diamonds">
-<div class="section-head reveal"><div><div class="eyebrow">The Firecut Collection</div><h2>RARE. TIMELESS.<br>YOUR CHOICE.</h2></div><p class="lead">From natural brilliance to the modern world of lab-grown diamonds, Firecut keeps the experience simple: tell us what you want and we find the right options.</p></div>
-<div class="dual">
-<article class="card reveal"><img src="assets/hero-video.mp4" alt="" onerror="this.style.display='none'"><div class="card-content"><div class="eyebrow">01 · Natural</div><h3>NATURAL DIAMONDS</h3><p>Rare. Timeless. Naturally extraordinary. Built for buyers who know the value of a truly exceptional stone.</p><a class="btn outline" href="#inquiry">Explore Natural →</a></div></article>
-<article class="card reveal"><div class="card-content"><div class="eyebrow">02 · Lab-Grown</div><h3>LAB-GROWN DIAMONDS</h3><p>Sustainable. Ethical. Exceptional value. Modern brilliance with the same personal Firecut service.</p><a class="btn outline" href="#inquiry">Explore Lab-Grown →</a></div></article>
+<div class="clarify reveal">
+  <svg viewBox="0 0 24 24"><path d="M3 9 12 3l9 6v11a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+  <p><strong>This website does not sell anything.</strong> It's an enquiry desk — every submission goes straight to WhatsApp and into our team's Google Sheet, and a person replies with options and pricing. No account, no cart, no online payment, anywhere.</p>
 </div>
+
+<div class="ticker"><div class="ticker-track">
+  <span>NATURAL DIAMONDS</span><span>LAB-GROWN DIAMONDS</span><span>COLOUR STONES</span><span>CUSTOM JEWELLERY</span><span>GIA · IGI · HRD · GSI · SGL</span><span>WHATSAPP ENQUIRY ONLY</span>
+  <span>NATURAL DIAMONDS</span><span>LAB-GROWN DIAMONDS</span><span>COLOUR STONES</span><span>CUSTOM JEWELLERY</span><span>GIA · IGI · HRD · GSI · SGL</span><span>WHATSAPP ENQUIRY ONLY</span>
+</div></div>
+
+<section class="section categories" id="catalogue">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">What we deal in</div><h2>Four ways to<br>send an <i>enquiry.</i></h2></div>
+    <p>Whether you buy for a showroom, a client, or yourself — pick a category and send us your requirement. We reply personally on WhatsApp with options and pricing.</p>
+  </div>
+  <div class="cat-grid">
+    <a class="cat-card" href="#finder" data-preset="Natural Diamond" id="natural">
+      <video muted loop playsinline preload="none" data-src="https://cdn.pixabay.com/video/2021/12/15/100881-658819857_large.mp4"></video>
+      <div class="cat-body">
+        <span class="cat-tag">Earth-Formed</span>
+        <h3>Natural<br>Diamonds</h3>
+        <p>Certified natural stones in every shape, size, colour and clarity — enquire and we'll shortlist real options.</p>
+        <span class="cat-link">Enquire about natural →</span>
+      </div>
+    </a>
+    <a class="cat-card" href="#finder" data-preset="Lab-Grown Diamond" id="labgrown">
+      <video muted loop playsinline preload="none" data-src="https://cdn.pixabay.com/video/2021/12/15/100882-658819867_large.mp4"></video>
+      <div class="cat-body">
+        <span class="cat-tag">Lab-Grown</span>
+        <h3>Lab-Grown<br>Diamonds</h3>
+        <p>Chemically identical to natural diamond, at a fraction of the cost — certified and graded the same way.</p>
+        <span class="cat-link">Enquire about lab-grown →</span>
+      </div>
+    </a>
+    <a class="cat-card" href="#finder" data-preset="Customized Jewellery" id="custom">
+      <video muted loop playsinline preload="none" data-src="https://cdn.pixabay.com/video/2017/08/10/11289-229221023_large.mp4"></video>
+      <div class="cat-body">
+        <span class="cat-tag">Made For You</span>
+        <h3>Customized<br>Jewellery</h3>
+        <p>Bring a sketch, a photo or an idea. We design it, set the stone and deliver a piece made to fit.</p>
+        <span class="cat-link">Enquire about custom →</span>
+      </div>
+    </a>
+    <a class="cat-card" href="#finder" data-preset="Colour Stone" id="colour">
+      <video muted loop playsinline preload="none" data-src="https://cdn.pixabay.com/video/2024/06/08/215834_large.mp4"></video>
+      <div class="cat-body">
+        <span class="cat-tag">Beyond White</span>
+        <h3>Colour<br>Stones</h3>
+        <p>Ruby, emerald, sapphire and more — sourced and matched to the exact shade and quality you're after.</p>
+        <span class="cat-link">Enquire about colour stones →</span>
+      </div>
+    </a>
+  </div>
 </section>
 
-<section class="section goldbg" id="shapes">
-<div class="section-head reveal"><div><div class="eyebrow">Choose your silhouette</div><h2>DIAMONDS IN<br>EVERY SHAPE.</h2></div><p class="lead">Round, princess, oval, cushion, emerald, pear, marquise, asscher, radiant or heart. Start with the shape and we will take care of the search.</p></div>
-<div class="shapes reveal">
-<div class="shape round" data-shape="Round"><div class="diamond"></div><span>Round</span></div><div class="shape" data-shape="Princess"><div class="diamond"></div><span>Princess</span></div><div class="shape" data-shape="Oval"><div class="diamond"></div><span>Oval</span></div><div class="shape" data-shape="Cushion"><div class="diamond"></div><span>Cushion</span></div><div class="shape" data-shape="Emerald"><div class="diamond"></div><span>Emerald</span></div><div class="shape" data-shape="Pear"><div class="diamond"></div><span>Pear</span></div><div class="shape" data-shape="Marquise"><div class="diamond"></div><span>Marquise</span></div><div class="shape" data-shape="Asscher"><div class="diamond"></div><span>Asscher</span></div><div class="shape" data-shape="Radiant"><div class="diamond"></div><span>Radiant</span></div><div class="shape" data-shape="Heart"><div class="diamond"></div><span>Heart</span></div>
-</div>
+<section class="section gallery" id="shapes">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">Real stones, photographed</div><h2>Every shape.<br><i>Actually photographed.</i></h2></div>
+    <p>These are real diamonds, shot up close — not illustrations. Pick a shape below and it's pre-filled straight into your enquiry.</p>
+  </div>
+  <div class="gallery-grid stagger">
+    <figure><img loading="lazy" src="https://images.pexels.com/photos/5362404/pexels-photo-5362404.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Real round brilliant diamond held in tweezers"></figure>
+    <figure><img loading="lazy" src="https://images.pexels.com/photos/5378463/pexels-photo-5378463.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Real emerald cut diamond"></figure>
+    <figure><img loading="lazy" src="https://images.pexels.com/photos/32492521/pexels-photo-32492521.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Real heart shaped diamond held in tweezers"></figure>
+    <figure><img loading="lazy" src="https://images.pexels.com/photos/5442447/pexels-photo-5442447.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Three real diamonds — heart, cushion and round cuts"></figure>
+    <figure><img loading="lazy" src="https://images.pexels.com/photos/32557859/pexels-photo-32557859.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Real brilliant cut diamond macro photograph"></figure>
+    <figure><img loading="lazy" src="https://images.pexels.com/photos/13648455/pexels-photo-13648455.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Real polished colour gemstone"></figure>
+    <figure><img loading="lazy" src="https://images.pexels.com/photos/32492520/pexels-photo-32492520.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Real pink emerald cut diamond held in tweezers"></figure>
+    <figure><img loading="lazy" src="https://images.pexels.com/photos/38505174/pexels-photo-38505174.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Real diamond reflecting light, close-up photograph"></figure>
+  </div>
+  <p class="gallery-note reveal">A sample of real diamonds and stones we've sourced — not stock illustrations. Tap a shape to start your enquiry:</p>
+  <div class="shape-picker stagger">
+    <button class="shape-pill" data-shape="Round">Round</button>
+    <button class="shape-pill" data-shape="Oval">Oval</button>
+    <button class="shape-pill" data-shape="Emerald">Emerald</button>
+    <button class="shape-pill" data-shape="Cushion">Cushion</button>
+    <button class="shape-pill" data-shape="Pear">Pear</button>
+    <button class="shape-pill" data-shape="Princess">Princess</button>
+    <button class="shape-pill" data-shape="Radiant">Radiant</button>
+    <button class="shape-pill" data-shape="Marquise">Marquise</button>
+    <button class="shape-pill" data-shape="Heart">Heart</button>
+  </div>
 </section>
 
-<section class="section" id="custom">
-<div class="custom reveal">
-<div class="copy"><div class="eyebrow">Custom diamond jewellery</div><h3>YOUR VISION.<br>OUR EXPERTISE.</h3><p>Engagement rings · Wedding rings · Pendants · Earrings · And more. Share your idea, receive options and price, and let us craft it around your requirement.</p><a class="btn gold" href="#inquiry">Create Yours →</a></div>
-<div class="visual"><img src="assets/website-reference.png" alt="Firecut luxury diamond visual"><div class="steps"><div class="step"><b>01</b>Share your idea</div><div class="step"><b>02</b>Get options &amp; price</div><div class="step"><b>03</b>We craft it</div><div class="step"><b>04</b>Get it delivered</div></div></div>
-</div>
+<section class="section labs" id="labs">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">Certification</div><h2>Graded by labs<br>you can <i>look up.</i></h2></div>
+    <p>Certified stones come with grading papers from independent, internationally recognised laboratories — not an in-house guess.</p>
+  </div>
+  <div class="lab-grid stagger">
+    <div class="lab-card"><b>GIA</b><span>Gemological Institute of America</span></div>
+    <div class="lab-card"><b>IGI</b><span>International Gemological Institute</span></div>
+    <div class="lab-card"><b>HRD</b><span>HRD Antwerp (Hoge Raad voor Diamant)</span></div>
+    <div class="lab-card"><b>GSI</b><span>Gemological Science International</span></div>
+    <div class="lab-card"><b>SGL</b><span>Solitaire Gemological Laboratories</span></div>
+  </div>
+  <p class="lab-note reveal">Which lab applies depends on the specific stone and your requirement — this is confirmed with you on WhatsApp before anything is finalised.</p>
 </section>
 
-<section class="section" id="about">
-<div class="founder">
-<div class="reveal"><div class="eyebrow">The name behind Firecut</div><h2>BHAVESH<br>JHA.</h2><p class="lead">With more than two decades of experience in diamonds and jewellery, Bhavesh Jha brings personal guidance, honest advice and a relationship-first approach to every requirement.</p><div class="quote">“Diamonds are not just my business, they are my passion.”</div></div>
-<div class="reveal"><img class="founder-photo" src="assets/bhavesh-jha.webp" alt="Bhavesh Jha"></div>
-</div>
+<section class="section journey" id="journey">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">From enquiry to delivery</div><h2>What happens<br>after you message.</h2></div>
+    <p>Every enquiry moves through the same four steps — nothing is confirmed or charged until you've agreed to it over WhatsApp.</p>
+  </div>
+  <div class="journey-track stagger">
+    <div class="j-step">
+      <div class="j-media"><span class="j-num">01</span><video muted loop playsinline preload="none" data-src="https://cdn.pixabay.com/video/2022/03/22/111603-691223087_large.mp4"></video></div>
+      <div class="j-body"><h4>You Enquire</h4><p>Fill the form or message WhatsApp directly. Your details land in our team's Google Sheet, nowhere else.</p></div>
+    </div>
+    <div class="j-step">
+      <div class="j-media"><span class="j-num">02</span><video muted loop playsinline preload="none" data-src="https://cdn.pixabay.com/video/2018/04/29/15890-267498503_large.mp4"></video></div>
+      <div class="j-body"><h4>We Source &amp; Verify</h4><p>Stones are sourced and checked against your exact requirement — shape, carat, colour, clarity.</p></div>
+    </div>
+    <div class="j-step">
+      <div class="j-media"><span class="j-num">03</span><video muted loop playsinline preload="none" data-src="https://cdn.pixabay.com/video/2025/03/20/266081_large.mp4"></video></div>
+      <div class="j-body"><h4>You Get Options</h4><p>A person shares options and a final price on WhatsApp — no online price list, no obligation.</p></div>
+    </div>
+    <div class="j-step">
+      <div class="j-media"><span class="j-num">04</span><video muted loop playsinline preload="none" data-src="https://cdn.pixabay.com/video/2017/08/10/11289-229221023_large.mp4"></video></div>
+      <div class="j-body"><h4>Delivered</h4><p>Once you confirm, diamonds ship in 2 working days; custom jewellery in 7 — payment handled directly, not through this site.</p></div>
+    </div>
+  </div>
 </section>
 
-<section class="section inquiry" id="inquiry">
-<div class="reveal"><div class="eyebrow">Private diamond inquiry</div><h2>HAVE A<br>DIAMOND<br>IN MIND?</h2><p class="lead">Drop your requirement. We will review it and get back with suitable options and final pricing.</p><a class="btn gold" href="https://web.whatsapp.com/send?phone=919920169168&text=Hello%20Firecut%2C%20I%20want%20diamond%20options%20with%20prices.">Chat on WhatsApp →</a></div>
-<form class="form reveal" id="form"><div class="field"><input name="name" required placeholder="Your Name *"><input name="mobile" required placeholder="Mobile / WhatsApp *"></div><div class="field"><input name="company" required placeholder="Company / Jewellery Store *"><input type="email" name="email" required placeholder="Email *"></div><div class="field"><select name="type"><option>Natural Diamonds</option><option>Lab-Grown Diamonds</option><option>Either</option></select><select name="shape" id="shapeSelect"><option>Round</option><option>Princess</option><option>Oval</option><option>Cushion</option><option>Emerald</option><option>Pear</option><option>Marquise</option><option>Asscher</option><option>Radiant</option><option>Heart</option></select></div><div class="field"><input name="carat" placeholder="Carat / Size"><input name="colour" placeholder="Colour & Clarity"></div><textarea name="details" placeholder="Your exact requirement, budget, certificate preference or anything else..."></textarea><button class="btn gold" type="submit">Send Requirement →</button></form>
+<section class="section finder" id="finder">
+  <div class="finder-card reveal">
+    <div class="eyebrow" style="color:#ffd7d5">The Firecut way</div>
+    <h3>Don't search.<br>Tell us.</h3>
+    <p>Your requirement can be as simple as "1 carat round, G/VS, natural" or as open as "design me a ring around this photo." This form doesn't charge you anything — it sends your requirement to WhatsApp and logs it for our team to follow up.</p>
+    <div style="margin-top:28px;font-size:11px;letter-spacing:.1em;color:#ffd7d5">NATURAL · LAB-GROWN · COLOUR STONES · CUSTOM JEWELLERY</div>
+  </div>
+  <div class="form reveal">
+    <div class="eyebrow">Start your enquiry</div>
+    <div class="field">
+      <select id="type">
+        <option>Natural Diamond</option>
+        <option>Lab-Grown Diamond</option>
+        <option>Colour Stone</option>
+        <option>Customized Jewellery</option>
+        <option>Not sure yet</option>
+      </select>
+      <select id="shape">
+        <option>Round</option><option>Oval</option><option>Emerald</option><option>Cushion</option><option>Pear</option><option>Princess</option><option>Radiant</option><option>Marquise</option><option>Heart</option><option>Not applicable / Custom design</option>
+      </select>
+    </div>
+    <div class="field"><input id="size" placeholder="Carat / size"><input id="quality" placeholder="Colour & clarity (or stone type)"></div>
+    <textarea id="notes" placeholder="Anything else? Budget, certification lab preference, design reference, quantity, deadline…"></textarea>
+    <button class="btn primary" id="send">Send Enquiry on WhatsApp →</button>
+  </div>
 </section>
 
-<section class="final"><div class="eyebrow">Firecut Diamonds &amp; Jewellery</div><h2>LET'S FIND<br><em>THE ONE.</em></h2><p>Natural or lab-grown. Any shape, size, colour or clarity. One conversation is all it takes to start.</p><div class="actions" style="justify-content:center"><a class="btn gold" href="#inquiry">Make an Inquiry →</a><a class="btn outline" href="https://web.whatsapp.com/send?phone=919920169168&text=Hello%20Firecut%2C%20I%20have%20a%20diamond%20requirement.">WhatsApp 99201 69168 →</a></div></section>
+<section class="section story" id="story">
+  <div class="reveal">
+    <div class="eyebrow" style="color:#ff8a86">Why Firecut</div>
+    <h2>The enquiry<br>comes first.</h2>
+    <p>Firecut is built around one simple idea: make finding the right stone or piece easier for jewellers, retailers and serious buyers — without turning it into an online shop. With 20+ years of diamond and jewellery experience behind the name, every conversation starts with your requirement, on WhatsApp, with a real person.</p>
+    <p>Need it fast? Diamonds and colour stones can be delivered within 2 working days, while customised jewellery can be made in 7 working days.</p>
+    <div class="signature-large">By Bhavesh Jha</div>
+  </div>
+  <img class="story-img reveal" src="assets/bhavesh-jha.png" alt="Bhavesh Jha — Firecut founder portrait">
+</section>
 
-<footer><div><h4>FIRECUT</h4><p>Diamonds &amp; Jewellery<br>By Bhavesh Jha</p></div><div><h4>Explore</h4><p><a href="#diamonds">Diamonds</a><br><a href="#shapes">Shapes</a><br><a href="#custom">Custom Jewellery</a></p></div><div><h4>For</h4><p>Jewellers<br>Retailers<br>Serious Buyers</p></div><div><h4>Connect</h4><p><a href="https://web.whatsapp.com/send?phone=919920169168">WhatsApp</a><br><a href="mailto:support@firecutdiamond.com">support@firecutdiamond.com</a><br>www.firecutdiamond.in</p></div><div class="copyright">© 2026 Firecut Diamonds &amp; Jewellery · By Bhavesh Jha · All rights reserved.</div></footer>
+<section class="section" style="padding-top:0">
+  <div class="badges stagger">
+    <div class="badge"><svg viewBox="0 0 48 48"><path d="M24 4 40 12v12c0 12-8 18-16 20-8-2-16-8-16-20V12z"/><path d="m17 24 5 5 10-11"/></svg><h5>Independently Certified</h5><p>Grading papers from GIA, IGI, HRD, GSI or SGL, confirmed with you before dispatch.</p></div>
+    <div class="badge"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><path d="M24 14v10l7 5"/></svg><h5>2-Day Delivery</h5><p>Diamonds and colour stones dispatched within 2 working days of confirmation.</p></div>
+    <div class="badge"><svg viewBox="0 0 48 48"><path d="M4 24h12l4-14 8 28 4-14h12"/></svg><h5>No Online Checkout</h5><p>Every enquiry is answered personally on WhatsApp — nothing is sold on this page.</p></div>
+    <div class="badge"><svg viewBox="0 0 48 48"><path d="M8 40V16l16-10 16 10v24"/><path d="M18 40V26h12v14"/></svg><h5>Direct Sourcing</h5><p>No middlemen markup — stones are sourced against your exact requirement.</p></div>
+  </div>
+</section>
 
-<div class="modal" id="modal"><div class="modal-card"><button class="close" id="close">×</button><div class="eyebrow dark">Firecut Diamonds</div><h2>Thank You.</h2><p>Your solitaire requirement has been received.</p><strong>We will get back to you within 30 minutes with your requirement.</strong><p>Our team will review the details and come back with the right options and final pricing.</p></div></div>
+<section class="final">
+  <div class="eyebrow reveal" style="color:#ffd7d5">One WhatsApp. The right options.</div>
+  <h2 class="reveal">HAVE A<br>REQUIREMENT?</h2>
+  <p class="reveal">Natural or lab-grown diamonds, colour stones, or a fully customised piece. Send an enquiry — there's nothing to buy here, just a conversation with our team.</p>
+  <a class="btn on-light reveal" href="https://web.whatsapp.com/send?phone=919920169168&text=Hi%20Firecut%2C%20I%20have%20a%20requirement.">Start on WhatsApp →</a>
+</section>
+</main>
+
+<footer>
+  <div><div class="eyebrow" style="color:#ff8a86">Firecut</div><h3 style="font-family:'Fraunces',serif;font-size:34px;font-weight:500;margin:0;color:#fff">An Enquiry Desk, Not a Store.</h3><p>Natural · Lab-Grown · Colour Stones · Custom Jewellery · By Bhavesh Jha</p></div>
+  <div><h4>Explore</h4><p><a href="#natural">Natural Diamonds</a><br><a href="#labgrown">Lab-Grown Diamonds</a><br><a href="#custom">Custom Jewellery</a><br><a href="#colour">Colour Stones</a><br><a href="#labs">Certification</a></p></div>
+  <div><h4>Connect</h4><p><a href="https://wa.me/919920169168">+91 99201 69168</a><br><a href="mailto:support@firecutdiamond.com">support@firecutdiamond.com</a><br><a href="https://www.firecutdiamond.in">firecutdiamond.in</a></p></div>
+  <div><h4>For</h4><p>Jewellers<br>Retailers<br>Serious Buyers<br>Custom Orders</p></div>
+  <div class="copyright">© 2026 FIRECUT DIAMONDS & JEWELLERY · BY BHAVESH JHA · ENQUIRIES ONLY, NO ONLINE SALES.</div>
+</footer>
 
 <script>
-const nav=document.getElementById("nav");addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.12});document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
-const sel=document.getElementById("shapeSelect");document.querySelectorAll(".shape").forEach(x=>x.onclick=()=>{sel.value=x.dataset.shape;document.getElementById("inquiry").scrollIntoView({behavior:"smooth",block:"center"})});
-const form=document.getElementById("form"),modal=document.getElementById("modal");document.getElementById("close").onclick=()=>modal.classList.remove("open");
-form.onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(form));const msg=`Hello Firecut, I have a diamond requirement.%0A%0AName: ${encodeURIComponent(d.name)}%0AMobile: ${encodeURIComponent(d.mobile)}%0ACompany: ${encodeURIComponent(d.company)}%0AEmail: ${encodeURIComponent(d.email)}%0AType: ${encodeURIComponent(d.type)}%0AShape: ${encodeURIComponent(d.shape)}%0ACarat: ${encodeURIComponent(d.carat||"-")}%0AColour & Clarity: ${encodeURIComponent(d.colour||"-")}%0ADetails: ${encodeURIComponent(d.details||"-")}`;modal.classList.add("open");form.reset();setTimeout(()=>open("https://web.whatsapp.com/send?phone=919920169168&text="+msg,"_blank"),450)};
+/* Paste your deployed Google Apps Script Web App URL here. */
+const APPS_SCRIPT_URL = "PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50),{passive:true});
+
+const burger=document.getElementById('burger'), mobileMenu=document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');mobileMenu.classList.toggle('open')});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');mobileMenu.classList.remove('open')}));
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.12});
+document.querySelectorAll('.reveal,.stagger').forEach(el=>observer.observe(el));
+
+/* Lazy-load and autoplay the category/journey background videos only once visible. */
+const lazyVideos=document.querySelectorAll('video[data-src]');
+const videoObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    const v=entry.target;
+    if(entry.isIntersecting){
+      if(!v.src){ v.src=v.dataset.src; }
+      v.play().catch(()=>{});
+    } else { v.pause(); }
+  });
+},{threshold:.2});
+lazyVideos.forEach(v=>videoObserver.observe(v));
+
+const cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='30px';cursor.style.height='30px'});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='16px';cursor.style.height='16px'});
+});
+document.querySelectorAll('.hero, .categories, .story, .final').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cursor.classList.add('on-dark'));
+  el.addEventListener('mouseleave',()=>cursor.classList.remove('on-dark'));
+});
+
+/* Category cards: clicking one scrolls to the enquiry form and pre-selects the type. */
+document.querySelectorAll('.cat-card[data-preset]').forEach(card=>{
+  card.addEventListener('click',e=>{
+    e.preventDefault();
+    const preset=card.dataset.preset;
+    const typeSelect=document.getElementById('type');
+    [...typeSelect.options].forEach(o=>{ if(o.value===preset) typeSelect.value=preset; });
+    document.getElementById('finder').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+/* Shape pills: pre-select the shape and jump to the enquiry form. */
+document.querySelectorAll('.shape-pill').forEach(pill=>{
+  pill.addEventListener('click',()=>{
+    document.querySelectorAll('.shape-pill').forEach(p=>p.classList.remove('active'));
+    pill.classList.add('active');
+    document.getElementById('shape').value=pill.dataset.shape;
+    document.getElementById('finder').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+document.getElementById('send').addEventListener('click',async()=>{
+  const type=document.getElementById('type').value, shape=document.getElementById('shape').value;
+  const size=document.getElementById('size').value, quality=document.getElementById('quality').value, notes=document.getElementById('notes').value;
+
+  const name = prompt("Your name");
+  if (!name) return;
+  const number = prompt("Mobile / WhatsApp number");
+  if (!number) return;
+  const company = prompt("Company / jewellery store name (or 'Individual')");
+  if (!company) return;
+  const email = prompt("Email address");
+  if (!email) return;
+
+  const inquiry = {
+    timestamp: new Date().toISOString(),
+    name, number, company, email,
+    diamondType: type, shape, size,
+    colourClarity: quality,
+    inquiry: notes || "Please suggest suitable options."
+  };
+
+  /* Log to Google Sheets when the endpoint is configured — this is the only place enquiry data goes. */
+  if (APPS_SCRIPT_URL && !APPS_SCRIPT_URL.includes("PASTE_GOOGLE")) {
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {"Content-Type":"text/plain;charset=utf-8"},
+        body: JSON.stringify(inquiry)
+      });
+    } catch(e) {}
+  }
+
+  document.getElementById('thankyou').classList.add('open');
+  document.getElementById('thankyou').setAttribute('aria-hidden','false');
+
+  const msg=`Hi Firecut, I have a requirement.%0A%0AName: ${encodeURIComponent(name)}%0AMobile: ${encodeURIComponent(number)}%0ACompany: ${encodeURIComponent(company)}%0AEmail: ${encodeURIComponent(email)}%0AType: ${encodeURIComponent(type)}%0AShape: ${encodeURIComponent(shape)}%0ACarat/Size: ${encodeURIComponent(size||'Not specified')}%0AColour/Clarity/Stone: ${encodeURIComponent(quality||'Not specified')}%0ARequirement: ${encodeURIComponent(notes||'Please suggest suitable options.')}`;
+  window.open('https://web.whatsapp.com/send?phone=919920169168&text='+msg,'_blank');
+});
+
+document.getElementById('closeThankyou').addEventListener('click',()=>{
+  document.getElementById('thankyou').classList.remove('open');
+  document.getElementById('thankyou').setAttribute('aria-hidden','true');
+});
 </script>
+
+<div class="thankyou" id="thankyou" aria-hidden="true">
+  <div class="thankyou-backdrop"></div>
+  <div class="thankyou-card">
+    <div class="thankyou-mark">✓</div>
+    <div class="eyebrow">Enquiry received</div>
+    <h2>Thank You.</h2>
+    <p>Your requirement has been logged and sent to our team.</p>
+    <strong>We will get back to you within 30 minutes on WhatsApp.</strong>
+    <span>Nothing has been charged or purchased — a person will review the details and reply with options and final pricing.</span>
+    <button class="btn primary" id="closeThankyou" style="border:1.5px solid var(--red);color:var(--red)">Continue Exploring →</button>
+  </div>
+</div>
+
 </body>
 </html>
