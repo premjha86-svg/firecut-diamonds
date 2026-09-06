@@ -1,31 +1,42 @@
-# Firecut Modern Luxury V4 — Inquiry Edition
+FIRECUT DIAMONDS — ROYAL DIAMOND WEBSITE
+=============================================
 
-This version adds:
-- Direct WhatsApp Web connection to +91 99201 69168.
-- Website inquiry capture fields: Name, Mobile/WhatsApp, Company Name, Email, Diamond Type, Shape, Carat/Size, Colour & Clarity, Detailed Inquiry.
-- Google Sheets receiver integration via Google Apps Script.
-- `google-apps-script.gs` is included.
+Files:
+- index.html
+- assets/hero-video.mp4
+- assets/firecut-logo.jpg
+- assets/bhavesh-jha.png
+- google-apps-script.gs
 
-IMPORTANT:
-The ChatGPT environment currently does not have permission to connect to the Google Drive/Sheets account, so the Google Sheet cannot be created or wired automatically from here.
+The hero uses hero-video.mp4 with autoplay, muted, loop and playsinline.
+The site is designed for jewellers and retailers and is inquiry/lead-generation only.
 
-One-time setup:
-1. Sign into Google with support@firecutdiamond.com.
-2. Create a Google Sheet.
-3. Extensions -> Apps Script.
-4. Paste `google-apps-script.gs`.
-5. Deploy it as a Web app, Execute as "Me", access "Anyone".
-6. Copy the Web App URL.
-7. Open `index.html` and replace:
+GOOGLE SHEETS
+1. Sign in to Google as premjha86@gmail.com.
+2. Create/open the Sheet where inquiries should go.
+3. Extensions → Apps Script.
+4. Paste google-apps-script.gs.
+5. Deploy → New deployment → Web app.
+6. Execute as: Me.
+7. Who has access: Anyone.
+8. Copy the Web App URL.
+9. In index.html replace:
    PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE
    with the Web App URL.
-8. Re-zip/upload the website.
+10. Commit the updated index.html to GitHub.
 
-After this, every website inquiry is appended to the "Website Inquiries" sheet, while the user is also taken directly to WhatsApp Web.
+GITHUB PAGES
+Upload the complete contents so index.html is at repository root and the assets folder sits beside it:
+/
+  index.html
+  assets/
+    hero-video.mp4
+    firecut-logo.jpg
+    bhavesh-jha.png
 
-Suggested sheet columns:
-Timestamp | Name | Mobile / WhatsApp | Company Name | Email | Diamond Type | Shape | Carat / Size | Colour & Clarity | Detailed Inquiry
+The website already expects this folder structure.
 
-
-Submission confirmation:
-After an inquiry is submitted, the website displays a premium Thank You confirmation stating: "We will get back to you within 30 minutes with your requirement." WhatsApp Web is opened with the submitted details.
+CONTACT
+WhatsApp: 99201 69168
+Email: support@firecutdiamond.com
+Website: www.firecutdiamond.in

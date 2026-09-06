@@ -2,333 +2,347 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#700d14">
-<title>Firecut — The Solitaire Destination</title>
-<!-- GOOGLE SHEETS INTEGRATION
-Set APPS_SCRIPT_URL below after deploying the supplied Google Apps Script.
-All website inquiries will then be appended to the Google Sheet.
--->
-<meta name="description" content="Firecut Diamonds & Jewellery by Bhavesh Jha — the solitaire destination for jewellers and retailers. Natural and lab-grown solitaires, every shape, size, colour and clarity.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08040a">
+<title>Firecut Diamonds & Jewellery — By Bhavesh Jha</title>
+<meta name="description" content="Firecut Diamonds & Jewellery by Bhavesh Jha — a premium solitaire destination for jewellers and retailers. Natural and lab-grown diamonds, every shape, size, colour and clarity.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --wine:#710d14; --wine2:#4a070d; --red:#9d111b; --ivory:#f8f3ec;
-  --paper:#fffdf9; --ink:#20191a; --gold:#b98b43; --line:rgba(113,13,20,.18);
-  --ease:cubic-bezier(.22,.8,.2,1);
+ --black:#08040a;--black2:#120a11;--wine:#650b18;--wine2:#3a0610;
+ --ruby:#a7192b;--champ:#d8b36a;--champ2:#f1d79d;--ivory:#fbf6ee;
+ --muted:#c9bdb9;--line:rgba(216,179,106,.25);--ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}
+body{margin:0;background:var(--black);color:var(--ivory);font-family:"DM Sans",Arial,sans-serif;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-button{font:inherit}
-::selection{background:var(--wine);color:#fff}
-.cursor{position:fixed;z-index:50;width:18px;height:18px;border:1px solid rgba(255,255,255,.8);border-radius:50%;pointer-events:none;mix-blend-mode:difference;transform:translate(-50%,-50%);transition:width .2s,height .2s}
-.noise{position:fixed;inset:0;pointer-events:none;z-index:49;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
-.nav{position:fixed;top:0;left:0;right:0;z-index:40;height:88px;padding:18px 4.5vw;display:flex;align-items:center;justify-content:space-between;color:#fff;transition:.4s var(--ease)}
-.nav.scrolled{background:rgba(38,3,7,.88);backdrop-filter:blur(18px);box-shadow:0 10px 40px rgba(0,0,0,.18)}
-.brand{display:flex;align-items:center;gap:12px;min-width:230px}
-.brand img{width:50px;height:50px;object-fit:cover;border-radius:50%;mix-blend-mode:screen}
-.brand-text{line-height:.88}
-.brand-text b{font-family:"Cormorant Garamond",serif;font-size:30px;letter-spacing:.04em}
-.brand-text small{display:block;font-size:8px;letter-spacing:.23em;margin-top:6px}
-.links{display:flex;gap:30px;font-size:12px;letter-spacing:.05em}
-.links a{opacity:.82;position:relative}
-.links a:after{content:"";position:absolute;left:0;bottom:-9px;width:0;height:1px;background:#fff;transition:.3s}
-.links a:hover:after{width:100%}
-.nav-cta{border:1px solid rgba(255,255,255,.6);padding:13px 19px;border-radius:100px;font-size:12px;letter-spacing:.06em;transition:.3s}
-.nav-cta:hover{background:#fff;color:var(--wine)}
-.hero{min-height:100vh;background:linear-gradient(110deg,#faf5ef 0%,#f8f2ea 44%,#670b11 72%,#360308 100%);position:relative;display:grid;grid-template-columns:51% 49%;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 68% 42%,rgba(255,255,255,.18),transparent 25%),linear-gradient(120deg,transparent 0 45%,rgba(255,255,255,.08) 52%,transparent 60%);animation:lightSweep 9s infinite}
-@keyframes lightSweep{0%,55%{transform:translateX(-8%)}75%,100%{transform:translateX(8%)}}
-.hero-copy{align-self:center;padding:145px 5vw 90px;position:relative;z-index:3}
-.kicker{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#6e3430;margin-bottom:24px}
-.hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(64px,7.3vw,124px);line-height:.78;font-weight:500;letter-spacing:-.045em;margin:0;color:var(--wine)}
-.hero h1 span{display:block;color:#171112;font-style:italic;font-size:.68em;line-height:.95;margin-top:20px;letter-spacing:-.02em}
-.hero p{font-size:15px;line-height:1.7;max-width:580px;margin:32px 0;color:#4c3e3d}
+button,input,select,textarea{font:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--champ);color:var(--black)}
+.noise{position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.nav{position:fixed;z-index:80;top:0;left:0;right:0;height:84px;padding:14px 5vw;display:flex;align-items:center;justify-content:space-between;transition:.45s var(--ease)}
+.nav.scrolled{background:rgba(8,4,10,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-logo{width:48px;height:48px;border:1px solid rgba(216,179,106,.55);border-radius:50%;padding:3px;background:rgba(255,255,255,.05);object-fit:cover}
+.brand-copy{line-height:.9}
+.brand-copy strong{font-family:"Cormorant Garamond",serif;font-size:30px;letter-spacing:.08em;font-weight:600}
+.brand-copy small{display:block;font-size:8px;letter-spacing:.22em;color:var(--champ2);margin-top:6px}
+.navlinks{display:flex;gap:30px;align-items:center;font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+.navlinks a{opacity:.8;transition:.25s}
+.navlinks a:hover{opacity:1;color:var(--champ2)}
+.navcta{border:1px solid var(--champ);padding:12px 18px;border-radius:999px;color:var(--champ2);font-size:10px;letter-spacing:.15em;text-transform:uppercase}
+.hero{min-height:100svh;position:relative;display:flex;align-items:center;overflow:hidden;background:#08040a}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.82;filter:saturate(.85) contrast(1.08)}
+.hero:after{content:"";position:absolute;inset:0;background:
+linear-gradient(90deg,rgba(8,4,10,.97) 0%,rgba(8,4,10,.77) 37%,rgba(8,4,10,.15) 72%,rgba(8,4,10,.58) 100%),
+linear-gradient(0deg,rgba(8,4,10,.75),transparent 45%,rgba(8,4,10,.45));
+}
+.hero-glow{position:absolute;z-index:2;width:55vw;height:55vw;border:1px solid rgba(216,179,106,.18);border-radius:50%;right:-23vw;top:10%;animation:rotate 25s linear infinite}
+.hero-glow:after{content:"";position:absolute;inset:7%;border:1px solid rgba(216,179,106,.12);border-radius:50%}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.hero-inner{position:relative;z-index:4;width:100%;padding:150px 5vw 80px}
+.eyebrow{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--champ2);margin-bottom:22px}
+.hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(64px,8vw,128px);line-height:.78;letter-spacing:-.045em;margin:0;max-width:900px}
+.hero h1 em{display:block;color:var(--champ2);font-style:italic;font-size:.68em;margin-top:20px}
+.hero-sub{max-width:590px;color:#e2d7d2;line-height:1.75;font-size:14px;margin:34px 0}
 .actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:14px;padding:17px 23px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:.35s var(--ease);cursor:pointer}
-.btn.primary{background:var(--wine);color:#fff;box-shadow:0 18px 35px rgba(113,13,20,.25)}
-.btn.primary:hover{transform:translateY(-4px);background:#930f18}
-.btn.secondary{border:1px solid var(--line);color:var(--wine);background:#fff}
-.btn.secondary:hover{transform:translateY(-4px);border-color:var(--wine)}
-.hero-proof{display:flex;gap:25px;margin-top:45px;flex-wrap:wrap}
-.proof{display:flex;gap:10px;align-items:center;font-size:10px;letter-spacing:.04em}
-.proof strong{display:block;font-family:"Cormorant Garamond",serif;font-size:25px;color:var(--wine)}
-.hero-art{position:relative;min-height:100vh;overflow:hidden}
-.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#f8f2ea 0%,transparent 19%),linear-gradient(0deg,rgba(22,0,3,.35),transparent 40%);pointer-events:none}
-.hero-art img{width:100%;height:100%;object-fit:cover;object-position:55% 46%;filter:saturate(.92) contrast(1.04);transform:scale(1.04);animation:heroFloat 8s ease-in-out infinite}
-@keyframes heroFloat{0%,100%{transform:scale(1.04) translate3d(0,0,0)}50%{transform:scale(1.08) translate3d(-10px,-6px,0)}}
-.signature{position:absolute;z-index:4;right:9%;bottom:12%;color:#e8c57e;text-align:right}
-.signature b{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:54px}
-.signature small{display:block;letter-spacing:.24em;font-size:9px;color:#fff;margin-top:-5px}
-.scroll{position:absolute;z-index:5;bottom:28px;left:5vw;color:#fff;font-size:9px;letter-spacing:.28em;display:flex;align-items:center;gap:12px}
-.scroll i{width:44px;height:1px;background:#fff;display:block;animation:scrollLine 1.5s infinite}
-@keyframes scrollLine{0%,100%{width:25px}50%{width:55px}}
-.ticker{background:var(--wine);color:#fff;overflow:hidden;white-space:nowrap;border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2)}
-.ticker-track{display:inline-flex;gap:60px;padding:16px 0;animation:marquee 25s linear infinite;font-size:10px;letter-spacing:.25em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:14px;padding:16px 23px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transition:.35s var(--ease)}
+.btn.gold{background:linear-gradient(135deg,var(--champ),var(--champ2));color:#170b0e;box-shadow:0 18px 45px rgba(216,179,106,.18)}
+.btn.outline{border:1px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.03);backdrop-filter:blur(8px)}
+.btn:hover{transform:translateY(-4px)}
+.proofs{display:flex;gap:34px;flex-wrap:wrap;margin-top:42px}
+.proof{display:flex;align-items:baseline;gap:9px}
+.proof strong{font-family:"Cormorant Garamond",serif;font-size:29px;color:var(--champ2)}
+.proof span{font-size:9px;color:#c7bbb7;letter-spacing:.08em}
+.signature{position:absolute;right:5vw;bottom:9%;z-index:5;text-align:right}
+.signature img{width:150px;height:150px;object-fit:cover;border-radius:50%;border:1px solid rgba(216,179,106,.5);padding:4px;margin-left:auto;filter:sepia(.12)}
+.signature b{display:block;font-family:"Cormorant Garamond",serif;font-size:38px;font-style:italic;color:var(--champ2);font-weight:500;margin-top:10px}
+.signature small{font-size:8px;letter-spacing:.25em;color:#fff}
+.scrollhint{position:absolute;z-index:5;bottom:28px;left:5vw;font-size:9px;letter-spacing:.28em;color:#fff;display:flex;align-items:center;gap:12px}
+.scrollhint i{display:block;width:40px;height:1px;background:var(--champ);animation:pulse 1.5s infinite}
+@keyframes pulse{50%{width:65px}}
+.ticker{overflow:hidden;white-space:nowrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--wine)}
+.track{display:inline-flex;gap:60px;padding:14px 0;animation:marquee 22s linear infinite;font-size:9px;letter-spacing:.3em;text-transform:uppercase}
 @keyframes marquee{to{transform:translateX(-50%)}}
-.section{padding:120px 5vw;position:relative}
+.section{padding:120px 5vw;background:var(--black)}
+.section.light{background:var(--ivory);color:var(--black)}
+.section.wine{background:linear-gradient(135deg,var(--wine2),var(--wine));}
 .section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:55px}
-.eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--wine);margin-bottom:14px}
-h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(48px,6vw,88px);line-height:.85;letter-spacing:-.035em;margin:0;color:var(--wine)}
-.section-head p{max-width:390px;color:#665958;line-height:1.7;font-size:13px}
-.shapes{background:#f2e8dd}
-.shape-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:1px;background:rgba(113,13,20,.15);border:1px solid rgba(113,13,20,.15)}
-.shape{background:#f9f4ee;min-height:185px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:17px;transition:.4s var(--ease);cursor:pointer;position:relative;overflow:hidden}
-.shape:before{content:"";position:absolute;width:90px;height:90px;border:1px solid rgba(113,13,20,.18);transform:rotate(45deg) scale(.6);transition:.4s}
-.shape:hover{background:var(--wine);color:#fff;transform:translateY(-8px);z-index:2;box-shadow:0 20px 40px rgba(113,13,20,.25)}
-.shape:hover:before{border-color:rgba(255,255,255,.3);transform:rotate(45deg) scale(.8)}
-.shape svg{width:62px;height:62px;position:relative;z-index:1;fill:none;stroke:currentColor;stroke-width:1.2}
-.shape span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;position:relative}
-.finder{background:#fff;display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
-.finder-card{background:linear-gradient(135deg,#6f0b12,#300307);color:#fff;padding:55px;border-radius:3px;position:relative;overflow:hidden;box-shadow:0 35px 80px rgba(50,4,8,.2)}
-.finder-card:after{content:"";position:absolute;width:340px;height:340px;border:1px solid rgba(232,197,126,.25);border-radius:50%;right:-150px;top:-120px;animation:spin 18s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.finder-card h3{font-family:"Cormorant Garamond",serif;font-size:55px;font-weight:500;line-height:.9;margin:0 0 22px}
-.finder-card p{color:#eadbd5;font-size:13px;line-height:1.8;max-width:450px}
-.form{display:grid;gap:13px}
-.field{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-select,input,textarea{width:100%;padding:16px 15px;background:#faf7f2;border:1px solid #e4d9d1;color:#342728;font:inherit;font-size:12px;outline:none;transition:.25s}
-select:focus,input:focus,textarea:focus{border-color:var(--wine);box-shadow:0 0 0 3px rgba(113,13,20,.08)}
-textarea{min-height:120px;resize:vertical}
-.form button{border:0}
-.story{background:var(--wine);color:#fff;display:grid;grid-template-columns:.75fr 1.25fr;gap:80px;align-items:center}
+.eyebrow.dark{color:var(--wine)}
+h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(52px,6.5vw,96px);line-height:.82;letter-spacing:-.04em;margin:0}
+.lead{max-width:430px;color:#cbbfba;line-height:1.8;font-size:13px}
+.light .lead{color:#5d514e}
+.luxgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.luxcard{min-height:300px;background:linear-gradient(145deg,#140b12,#08040a);padding:34px;position:relative;overflow:hidden;transition:.45s var(--ease)}
+.luxcard:hover{transform:translateY(-8px);background:linear-gradient(145deg,#241018,#0d050a)}
+.luxcard:before{content:"";position:absolute;width:180px;height:180px;border:1px solid rgba(216,179,106,.2);border-radius:50%;right:-80px;top:-70px}
+.luxnum{font-family:"Cormorant Garamond",serif;font-size:18px;color:var(--champ)}
+.luxcard h3{font-family:"Cormorant Garamond",serif;font-size:42px;font-weight:500;margin:75px 0 14px}
+.luxcard p{color:#bbaea9;line-height:1.7;font-size:12px;max-width:330px}
+.shapegrid{display:grid;grid-template-columns:repeat(9,1fr);gap:1px;background:rgba(101,11,24,.2);border:1px solid rgba(101,11,24,.2)}
+.shape{background:#fffaf3;color:#3b2526;min-height:165px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;transition:.35s var(--ease);cursor:pointer}
+.shape:hover,.shape.active{background:var(--wine);color:#fff;transform:translateY(-5px);box-shadow:0 18px 35px rgba(101,11,24,.25);z-index:2}
+.shape-icon{width:55px;height:55px;position:relative;transform:rotate(45deg);border:1px solid currentColor}
+.shape.round .shape-icon{border-radius:50%;transform:none}
+.shape.oval .shape-icon{border-radius:50%;transform:scaleX(.72)}
+.shape.marquise .shape-icon{border-radius:70% 0 70% 0;transform:rotate(45deg) scale(.85)}
+.shape h4{font-size:9px;letter-spacing:.2em;text-transform:uppercase;margin:0}
+.finder{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+.finder-card{position:relative;overflow:hidden;padding:55px;background:linear-gradient(145deg,#26050c,#760c1c);border:1px solid var(--line);min-height:420px}
+.finder-card:before,.finder-card:after{content:"";position:absolute;border:1px solid rgba(216,179,106,.25);border-radius:50%}
+.finder-card:before{width:360px;height:360px;right:-170px;top:-100px;animation:rotate 18s linear infinite}
+.finder-card:after{width:230px;height:230px;right:-90px;top:-35px;animation:rotate 11s linear infinite reverse}
+.finder-card h3{font-family:"Cormorant Garamond",serif;font-size:58px;line-height:.86;font-weight:500;margin:0 0 25px}
+.finder-card p{color:#ead8d3;line-height:1.8;font-size:13px;max-width:390px}
+.form{display:grid;gap:12px}
+.field{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input,select,textarea{width:100%;padding:15px;background:#100a0f;color:#fff;border:1px solid rgba(216,179,106,.22);outline:none;border-radius:0}
+input:focus,select:focus,textarea:focus{border-color:var(--champ);box-shadow:0 0 0 3px rgba(216,179,106,.08)}
+textarea{min-height:115px;resize:vertical}
+.form .btn{border:0;cursor:pointer}
+.story{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+.story-photo{width:100%;height:540px;object-fit:cover;object-position:50% 20%;border:1px solid var(--line);filter:saturate(.75)}
 .story h2{color:#fff}
-.story p{color:#e9d9d6;line-height:1.9;font-size:14px;max-width:560px}
-.story-img{width:100%;height:560px;object-fit:cover;object-position:50% 15%;filter:saturate(.8);border-radius:2px;transform:scale(.98);transition:transform 1s var(--ease)}
-.story-img.revealed{transform:scale(1)}
-.signature-large{font-family:"Cormorant Garamond",serif;color:#e7c57d;font-style:italic;font-size:48px;margin-top:25px}
-.final{background:#f8f1e8;text-align:center;padding:140px 5vw}
-.final h2{font-size:clamp(58px,8vw,120px)}
-.final p{max-width:650px;margin:25px auto 35px;line-height:1.8;color:#665958;font-size:14px}
-footer{background:#260205;color:#e8d9d0;padding:55px 5vw 25px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:45px}
-footer h4{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#e6c27a}
-footer p,footer a{font-size:12px;line-height:2;color:#bca8a2}
+.story p{color:#dccdca;line-height:1.9;font-size:14px}
+.quote{font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--champ2);line-height:1.1;margin-top:28px}
+.final{text-align:center;padding:150px 5vw;background:radial-gradient(circle at 50% 0%,#3d0710,#08040a 55%)}
+.final h2{font-size:clamp(60px,9vw,130px)}
+.final p{max-width:650px;margin:28px auto 35px;color:#c9bdb9;line-height:1.8}
+footer{padding:55px 5vw 25px;background:#050306;border-top:1px solid var(--line);display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+footer h4{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--champ)}
+footer p,footer a{font-size:11px;line-height:2;color:#9f9390}
 footer a:hover{color:#fff}
-.copyright{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:9px;color:#856f69;letter-spacing:.08em}
-.reveal{opacity:0;transform:translateY(35px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.copyright{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-top:18px;color:#685d5a;font-size:9px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.show{opacity:1;transform:none}
-.stagger > *{opacity:0;transform:translateY(25px)}
-.stagger.show > *{animation:up .8s var(--ease) forwards}
-.stagger.show > *:nth-child(2){animation-delay:.08s}.stagger.show > *:nth-child(3){animation-delay:.16s}.stagger.show > *:nth-child(4){animation-delay:.24s}
-@keyframes up{to{opacity:1;transform:none}}
-.diamond-orbit{position:absolute;left:50%;top:50%;width:310px;height:310px;transform:translate(-50%,-50%);pointer-events:none}
-.diamond-orbit:before,.diamond-orbit:after{content:"";position:absolute;inset:0;border:1px solid rgba(232,197,126,.25);border-radius:50%;animation:orbit 14s linear infinite}
-.diamond-orbit:after{inset:35px;animation-duration:9s;animation-direction:reverse}
-@keyframes orbit{to{transform:rotate(360deg)}}
-
-.thankyou{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:25px;visibility:hidden;opacity:0;transition:.35s var(--ease)}
-.thankyou.open{visibility:visible;opacity:1}
-.thankyou-backdrop{position:absolute;inset:0;background:rgba(26,0,4,.78);backdrop-filter:blur(12px)}
-.thankyou-card{position:relative;width:min(560px,100%);background:var(--paper);padding:55px 45px;text-align:center;box-shadow:0 35px 100px rgba(0,0,0,.35);transform:translateY(25px) scale(.98);transition:.5s var(--ease)}
-.thankyou.open .thankyou-card{transform:none}
-.thankyou-mark{width:54px;height:54px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin:0 auto 25px;color:var(--wine);font-size:24px}
-.thankyou-card h2{font-size:72px;margin:4px 0 15px}
-.thankyou-card p{font-size:15px;color:#594b49;margin:0 0 12px}
-.thankyou-card strong{display:block;color:var(--wine);font-size:16px;line-height:1.5}
-.thankyou-card span{display:block;color:#756765;font-size:12px;line-height:1.7;margin:15px auto 28px;max-width:420px}
-@media(max-width:600px){.thankyou-card{padding:42px 25px}.thankyou-card h2{font-size:58px}.thankyou-card strong{font-size:14px}}
-
-@media(max-width:1000px){
- .links{display:none}.hero{grid-template-columns:1fr}.hero-art{position:absolute;inset:0;opacity:.48}.hero-copy{min-height:100vh;display:flex;flex-direction:column;justify-content:center}.hero h1{font-size:clamp(60px,13vw,110px)}.hero-copy{padding-top:150px}.hero-proof{color:#fff}.proof strong{color:#fff}.hero-copy p,.kicker{color:#fff}.hero-copy:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(45,0,5,.85),rgba(45,0,5,.2));z-index:-1;margin:-50px}.signature{bottom:8%;right:7%}
- .shape-grid{grid-template-columns:repeat(3,1fr)}.finder,.story{grid-template-columns:1fr}.story{gap:35px}.story-img{height:430px}footer{grid-template-columns:1fr 1fr}
+.modal{position:fixed;inset:0;z-index:200;display:none;place-items:center;padding:20px}
+.modal.open{display:grid}
+.modal-bg{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(14px)}
+.modal-card{position:relative;background:var(--ivory);color:#21181b;width:min(560px,100%);padding:55px;text-align:center;border:1px solid var(--champ);box-shadow:0 30px 100px #000}
+.modal-mark{width:55px;height:55px;border:1px solid var(--champ);border-radius:50%;display:grid;place-items:center;margin:0 auto 20px;color:var(--wine);font-family:"Cormorant Garamond",serif;font-size:25px}
+.modal-card h2{color:var(--wine);font-size:70px}
+.modal-card p{color:#625553;line-height:1.7}
+.modal-card strong{display:block;color:var(--wine);font-size:16px;margin:15px 0}
+.close{position:absolute;right:15px;top:12px;border:0;background:none;font-size:25px;color:var(--wine);cursor:pointer}
+@media(max-width:900px){
+ .nav{height:70px;padding:10px 18px}.brand-logo{width:42px;height:42px}.brand-copy strong{font-size:25px}.navlinks{display:none}
+ .hero-inner{padding:130px 20px 70px}.hero:after{background:linear-gradient(90deg,rgba(8,4,10,.94),rgba(8,4,10,.55)),linear-gradient(0deg,rgba(8,4,10,.8),transparent)}
+ .hero h1{font-size:clamp(54px,15vw,88px)}.hero-sub{font-size:13px}
+ .signature{right:20px;bottom:40px}.signature img{width:80px;height:80px}.signature b{font-size:26px}
+ .section{padding:80px 20px}.section-head{display:block}.section-head .lead{margin-top:25px}
+ .luxgrid{grid-template-columns:1fr}.shapegrid{grid-template-columns:repeat(3,1fr)}.shape{min-height:135px}
+ .finder,.story{grid-template-columns:1fr;gap:35px}.finder-card{min-height:330px;padding:35px}.finder-card h3{font-size:48px}
+ .field{grid-template-columns:1fr}.story-photo{height:400px}
+ footer{grid-template-columns:1fr 1fr}.copyright{grid-column:1/-1}
 }
-@media(max-width:600px){
- .nav{height:72px;padding:12px 5vw}.brand{min-width:0}.brand img{width:42px;height:42px}.brand-text b{font-size:23px}.brand-text small{font-size:6px}.nav-cta{padding:10px 13px;font-size:9px}.hero-copy{padding:120px 7vw 80px}.hero h1{font-size:60px}.hero h1 span{font-size:34px}.hero p{font-size:13px}.hero-art img{object-position:60% 50%}.hero-proof{gap:14px}.proof{font-size:8px}.proof strong{font-size:20px}.section{padding:85px 6vw}.section-head{display:block}.section-head p{margin-top:25px}.shape-grid{grid-template-columns:repeat(2,1fr)}.shape{min-height:150px}.finder-card{padding:38px 28px}.finder-card h3{font-size:46px}.field{grid-template-columns:1fr}.story{padding-left:6vw;padding-right:6vw}.story-img{height:360px}footer{grid-template-columns:1fr;padding:50px 7vw}.cursor{display:none}
-}
-@media(prefers-reduced-motion:reduce){
- *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
-}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}}
 </style>
 </head>
 <body>
-<div class="cursor"></div><div class="noise"></div>
+<div class="noise"></div>
 
 <header class="nav" id="nav">
-  <a class="brand" href="#top">
-    <img src="assets/firecut-logo.jpg" alt="Firecut logo">
-    <span class="brand-text"><b>FIRECUT</b><small>DIAMONDS & JEWELLERY · BY BHAVESH JHA</small></span>
+  <a class="brand" href="#">
+    <img class="brand-logo" src="assets/firecut-logo.jpg" alt="Firecut Diamonds & Jewellery logo">
+    <span class="brand-copy"><strong>FIRECUT</strong><small>DIAMONDS &amp; JEWELLERY · BY BHAVESH JHA</small></span>
   </a>
-  <nav class="links">
-    <a href="#solitaires">Solitaires</a><a href="#shapes">Shapes</a><a href="#finder">Find Yours</a><a href="#story">Why Firecut</a>
+  <nav class="navlinks">
+    <a href="#collection">Collection</a>
+    <a href="#solitaire">Solitaire</a>
+    <a href="#story">Legacy</a>
+    <a href="#inquiry">Inquiry</a>
   </nav>
-  <a class="nav-cta" href="https://web.whatsapp.com/send?phone=919920169168&text=Hi%20Firecut%2C%20I%27m%20looking%20for%20a%20solitaire.">WhatsApp Us ↗</a>
+  <a class="navcta" href="https://web.whatsapp.com/send?phone=919920169168&text=Hello%20Firecut%2C%20I%20want%20to%20discuss%20a%20diamond%20requirement.">WhatsApp Us ↗</a>
 </header>
 
-<main id="top">
-<section class="hero" id="solitaires">
-  <div class="hero-copy">
-    <div class="kicker reveal">For Jewellers · For Retailers · For Serious Buyers</div>
-    <h1 class="reveal">THE RIGHT<br>SOLITAIRE.<span>WITHOUT THE SEARCH.</span></h1>
-    <p class="reveal">Natural & Lab-Grown solitaires — every shape, size, colour and clarity. Tell us your requirement and get the right options with the final price.</p>
-    <div class="actions reveal">
-      <a class="btn primary" href="https://web.whatsapp.com/send?phone=919920169168&text=Hi%20Firecut%2C%20I%27d%20like%20to%20find%20a%20solitaire.">Find My Solitaire →</a>
-      <a class="btn secondary" href="#shapes">Explore Shapes →</a>
+<main>
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/firecut-logo.jpg">
+    <source src="assets/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-glow"></div>
+  <div class="hero-inner reveal">
+    <div class="eyebrow">For jewellers · For retailers · For serious buyers</div>
+    <h1>THE DIAMOND<br>YOU WANT.<em>WITHOUT THE SEARCH.</em></h1>
+    <p class="hero-sub">A refined destination for Natural &amp; Lab-Grown diamonds — every shape, size, colour and clarity. Tell us what you need. We bring you the right options and the final price.</p>
+    <div class="actions">
+      <a class="btn gold" href="#inquiry">Find My Solitaire →</a>
+      <a class="btn outline" href="#collection">Explore Diamonds →</a>
     </div>
-    <div class="hero-proof reveal">
-      <div class="proof"><strong>20+</strong><span>Years of<br>diamond experience</span></div>
-      <div class="proof"><strong>2 DAYS</strong><span>Fast<br>diamond delivery</span></div>
-      <div class="proof"><strong>1 CHAT</strong><span>Requirement →<br>options → price</span></div>
+    <div class="proofs">
+      <div class="proof"><strong>20+</strong><span>Years of diamond &amp; jewellery experience</span></div>
+      <div class="proof"><strong>2 DAYS</strong><span>Fast diamond delivery</span></div>
+      <div class="proof"><strong>1 CHAT</strong><span>Requirement → options → price</span></div>
     </div>
   </div>
-  <div class="hero-art">
-    <img src="assets/solitaire-hero.jpg" alt="Brilliant round solitaire diamond">
-    <div class="diamond-orbit"></div>
-    <div class="signature"><b>Bhavesh Jha</b><small>A LEGACY OF BRILLIANCE · BUILT ON TRUST</small></div>
+  <div class="signature">
+    <img src="assets/firecut-logo.jpg" alt="">
+    <b>Bhavesh Jha</b>
+    <small>A LEGACY OF BRILLIANCE BUILT ON TRUST</small>
   </div>
-  <div class="scroll"><i></i> SCROLL TO DISCOVER</div>
+  <div class="scrollhint"><i></i> SCROLL TO DISCOVER</div>
 </section>
 
-<div class="ticker"><div class="ticker-track">
-  <span>NATURAL SOLITAIRES</span><span>LAB-GROWN SOLITAIRES</span><span>EVERY SHAPE</span><span>EVERY SIZE</span><span>EVERY COLOUR</span><span>EVERY CLARITY</span><span>FINAL PRICE</span>
-  <span>NATURAL SOLITAIRES</span><span>LAB-GROWN SOLITAIRES</span><span>EVERY SHAPE</span><span>EVERY SIZE</span><span>EVERY COLOUR</span><span>EVERY CLARITY</span><span>FINAL PRICE</span>
-</div></div>
+<div class="ticker"><div class="track">NATURAL DIAMONDS · LAB-GROWN DIAMONDS · SOLITAIRES · EVERY SHAPE · EVERY SIZE · EVERY COLOUR · EVERY CLARITY · CUSTOM JEWELLERY · NATURAL DIAMONDS · LAB-GROWN DIAMONDS · SOLITAIRES · EVERY SHAPE · EVERY SIZE · EVERY COLOUR · EVERY CLARITY · CUSTOM JEWELLERY · </div></div>
 
-<section class="section shapes" id="shapes">
+<section class="section" id="collection">
   <div class="section-head reveal">
-    <div><div class="eyebrow">Find by shape</div><h2>Every shape.<br>Every possibility.</h2></div>
-    <p>From the timeless Round to the distinctive Marquise — tell us the shape you want and we'll help narrow the search to the stones that actually fit your requirement.</p>
+    <div><div class="eyebrow">The Firecut Standard</div><h2>NOT JUST<br>A DIAMOND.</h2></div>
+    <p class="lead">It is the confidence that the stone is right, the number is clear and the process is simple. Built for jewellers who value speed, choice and trust.</p>
   </div>
-  <div class="shape-grid stagger">
-    <div class="shape"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="24"/><path d="M16 40h48M40 16v48"/></svg><span>Round</span></div>
-    <div class="shape"><svg viewBox="0 0 80 80"><ellipse cx="40" cy="40" rx="18" ry="28"/><path d="M22 40h36"/></svg><span>Oval</span></div>
-    <div class="shape"><svg viewBox="0 0 80 80"><rect x="20" y="20" width="40" height="40"/><path d="M27 27h26v26H27z"/></svg><span>Emerald</span></div>
-    <div class="shape"><svg viewBox="0 0 80 80"><rect x="19" y="19" width="42" height="42" rx="9" transform="rotate(0 40 40)"/><path d="M25 40h30M40 25v30"/></svg><span>Cushion</span></div>
-    <div class="shape"><svg viewBox="0 0 80 80"><path d="M40 14 61 38 40 66 19 38z"/><path d="M19 38h42"/></svg><span>Pear</span></div>
-    <div class="shape"><svg viewBox="0 0 80 80"><rect x="22" y="22" width="36" height="36"/><path d="m22 22 36 36M58 22 22 58"/></svg><span>Princess</span></div>
-    <div class="shape"><svg viewBox="0 0 80 80"><path d="M21 30 40 20l19 10v20L40 60 21 50z"/><path d="M21 30h38M40 20v40"/></svg><span>Radiant</span></div>
-    <div class="shape"><svg viewBox="0 0 80 80"><path d="M15 40 32 22 65 40 32 58z"/><path d="M32 22 40 40 32 58"/></svg><span>Marquise</span></div>
-    <div class="shape"><svg viewBox="0 0 80 80"><path d="M40 62 18 39c-10-14 9-29 22-15 13-14 32 1 22 15z"/><path d="M18 39h44"/></svg><span>Heart</span></div>
+  <div class="luxgrid reveal">
+    <article class="luxcard"><div class="luxnum">01</div><h3>Natural</h3><p>Natural diamonds across shapes, sizes, colours and clarities — selected around your exact requirement.</p></article>
+    <article class="luxcard"><div class="luxnum">02</div><h3>Lab-Grown</h3><p>Modern lab-grown options with the same effortless request flow: tell us the stone, receive the right choices.</p></article>
+    <article class="luxcard"><div class="luxnum">03</div><h3>Custom</h3><p>Custom diamond jewellery made around your requirement, with a clear process and premium finishing.</p></article>
   </div>
 </section>
 
-<section class="section finder" id="finder">
-  <div class="finder-card reveal">
-    <div class="eyebrow" style="color:#e5c17b">The Firecut way</div>
-    <h3>Don't search.<br>Tell us.</h3>
-    <p>Your requirement can be as simple as “1 carat round, G/VS, natural” or as specific as you need. We do the legwork, shortlist the right possibilities and give you the final price.</p>
-    <div style="margin-top:30px;font-size:11px;letter-spacing:.12em;color:#e6c27a">NATURAL · LAB-GROWN · CUSTOM REQUIREMENTS</div>
+<section class="section light" id="solitaire">
+  <div class="section-head reveal">
+    <div><div class="eyebrow dark">Choose your silhouette</div><h2>THE SHAPE<br>CHANGES EVERYTHING.</h2></div>
+    <p class="lead">Start with the silhouette. We will take care of the search for the right diamond, the details and the final price.</p>
   </div>
-  <div class="form reveal">
-    <div class="eyebrow">Start your requirement</div>
-    <div class="field"><select id="type"><option>Natural Diamond</option><option>Lab-Grown Diamond</option><option>Not sure yet</option></select><select id="shape"><option>Round</option><option>Oval</option><option>Emerald</option><option>Cushion</option><option>Pear</option><option>Princess</option><option>Radiant</option><option>Marquise</option><option>Heart</option><option>Other</option></select></div>
-    <div class="field"><input id="size" placeholder="Carat / size"><input id="quality" placeholder="Colour & clarity"></div>
-    <textarea id="notes" placeholder="Anything else? Budget, certification, quantity, deadline…"></textarea>
-    <button class="btn primary" id="send">Send Requirement on WhatsApp →</button>
+  <div class="shapegrid reveal" id="shapes">
+    <div class="shape round active" data-shape="Round"><div class="shape-icon"></div><h4>Round</h4></div>
+    <div class="shape oval" data-shape="Oval"><div class="shape-icon"></div><h4>Oval</h4></div>
+    <div class="shape marquise" data-shape="Marquise"><div class="shape-icon"></div><h4>Marquise</h4></div>
+    <div class="shape" data-shape="Emerald"><div class="shape-icon"></div><h4>Emerald</h4></div>
+    <div class="shape" data-shape="Pear"><div class="shape-icon"></div><h4>Pear</h4></div>
+    <div class="shape" data-shape="Princess"><div class="shape-icon"></div><h4>Princess</h4></div>
+    <div class="shape" data-shape="Cushion"><div class="shape-icon"></div><h4>Cushion</h4></div>
+    <div class="shape" data-shape="Radiant"><div class="shape-icon"></div><h4>Radiant</h4></div>
+    <div class="shape" data-shape="Heart"><div class="shape-icon"></div><h4>Heart</h4></div>
   </div>
 </section>
 
-<section class="section story" id="story">
-  <div class="reveal">
-    <div class="eyebrow" style="color:#e6c27a">Why Firecut</div>
-    <h2>The solitaire<br>comes first.</h2>
-    <p>Firecut is built around one simple idea: make finding the right diamond easier for jewellers and retailers. With 20+ years of diamond and jewellery experience behind the name, every conversation starts with your requirement — not a catalogue.</p>
-    <p>Need it fast? Diamonds can be delivered within 2 working days, while customised diamond jewellery can be made in 7 working days.</p>
-    <div class="signature-large">By Bhavesh Jha</div>
+<section class="section wine">
+  <div class="finder">
+    <div class="finder-card reveal">
+      <div class="eyebrow">Your requirement. Our search.</div>
+      <h3>ONE CHAT.<br>THE RIGHT<br>OPTIONS.</h3>
+      <p>No complicated catalogue hunting. Send us your requirement on WhatsApp or use the inquiry form. We respond with suitable options and the final price.</p>
+      <a class="btn gold" href="https://web.whatsapp.com/send?phone=919920169168&text=Hello%20Firecut%2C%20I%20want%20to%20find%20the%20right%20solitaire.">Start on WhatsApp →</a>
+    </div>
+    <div id="inquiry" class="reveal">
+      <div class="eyebrow">Private diamond inquiry</div>
+      <h2>Tell us what<br>you are looking for.</h2>
+      <p class="lead">For jewellers &amp; retailers. We will review the details and come back with the right options and final pricing.</p>
+      <form class="form" id="inquiryForm">
+        <div class="field">
+          <input name="name" placeholder="Your Name *" required>
+          <input name="mobile" placeholder="Mobile / WhatsApp *" required>
+        </div>
+        <div class="field">
+          <input name="company" placeholder="Company / Jewellery Store *" required>
+          <input type="email" name="email" placeholder="Email *" required>
+        </div>
+        <div class="field">
+          <select name="type"><option>Diamond Type — Natural</option><option>Diamond Type — Lab-Grown</option><option>Diamond Type — Either</option></select>
+          <select name="shape" id="shapeSelect"><option>Shape — Round</option><option>Shape — Oval</option><option>Shape — Marquise</option><option>Shape — Emerald</option><option>Shape — Pear</option><option>Shape — Princess</option><option>Shape — Cushion</option><option>Shape — Radiant</option><option>Shape — Heart</option></select>
+        </div>
+        <div class="field">
+          <input name="carat" placeholder="Carat / Size">
+          <input name="colour" placeholder="Colour & Clarity">
+        </div>
+        <textarea name="details" placeholder="Tell us your exact requirement, budget, certificate preference or any other details."></textarea>
+        <button class="btn gold" type="submit">Send Requirement →</button>
+      </form>
+    </div>
   </div>
-  <img class="story-img reveal" src="assets/bhavesh-jha.png" alt="Bhavesh Jha — Firecut founder portrait">
 </section>
 
-<section class="final">
-  <div class="eyebrow reveal">One WhatsApp. The right options.</div>
-  <h2 class="reveal">HAVE A<br>REQUIREMENT?</h2>
-  <p class="reveal">Shape. Carat. Colour. Clarity. Natural or Lab-Grown. Drop us a WhatsApp and let's make finding the right solitaire simple.</p>
-  <a class="btn primary reveal" href="https://web.whatsapp.com/send?phone=919920169168&text=Hi%20Firecut%2C%20I%20have%20a%20solitaire%20requirement.">Start on WhatsApp →</a>
+<section class="section" id="story">
+  <div class="story">
+    <div class="reveal">
+      <div class="eyebrow">The name behind Firecut</div>
+      <h2>BHAVESH<br>JHA.</h2>
+      <p>Firecut is built around a simple belief: buying a diamond should feel clear, personal and effortless. With more than two decades of experience across diamonds and jewellery, Bhavesh Jha brings the eye, relationships and judgement that turn a requirement into the right stone.</p>
+      <div class="quote">“The right diamond is not the one you search the longest for. It is the one that simply feels right.”</div>
+    </div>
+    <div class="reveal"><img class="story-photo" src="assets/bhavesh-jha.png" alt="Bhavesh Jha"></div>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="eyebrow">Firecut Diamonds &amp; Jewellery</div>
+  <h2 class="reveal">LET'S FIND<br><em>THE ONE.</em></h2>
+  <p class="reveal">Natural or lab-grown. Round, oval, emerald, pear or any other shape. Tell us what you need and let Firecut make the process simple.</p>
+  <div class="actions" style="justify-content:center">
+    <a class="btn gold" href="#inquiry">Make an Inquiry →</a>
+    <a class="btn outline" href="https://web.whatsapp.com/send?phone=919920169168&text=Hello%20Firecut%2C%20I%20have%20a%20diamond%20requirement.">WhatsApp 99201 69168 →</a>
+  </div>
 </section>
 </main>
 
 <footer>
-  <div><div class="eyebrow" style="color:#e6c27a">Firecut</div><h3 style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:500;margin:0;color:#fff">The Solitaire Destination.</h3><p>Diamonds & Jewellery · By Bhavesh Jha</p></div>
-  <div><h4>Explore</h4><p><a href="#solitaires">Solitaires</a><br><a href="#shapes">Shapes</a><br><a href="#finder">Find Yours</a></p></div>
-  <div><h4>Connect</h4><p><a href="https://wa.me/919920169168">+91 99201 69168</a><br><a href="mailto:support@firecutdiamond.com">support@firecutdiamond.com</a><br><a href="https://www.firecutdiamond.in">firecutdiamond.in</a></p></div>
+  <div><h4>Firecut</h4><p>Diamonds &amp; Jewellery<br>By Bhavesh Jha</p></div>
   <div><h4>For</h4><p>Jewellers<br>Retailers<br>Serious Buyers</p></div>
-  <div class="copyright">© 2026 FIRECUT DIAMONDS & JEWELLERY · BY BHAVESH JHA · BUILT ON TRUST.</div>
+  <div><h4>Explore</h4><p><a href="#collection">Collection</a><br><a href="#solitaire">Solitaire Shapes</a><br><a href="#story">Legacy</a></p></div>
+  <div><h4>Connect</h4><p><a href="https://web.whatsapp.com/send?phone=919920169168">WhatsApp</a><br><a href="mailto:support@firecutdiamond.com">support@firecutdiamond.com</a><br>www.firecutdiamond.in</p></div>
+  <div class="copyright">© 2026 Firecut Diamonds &amp; Jewellery · By Bhavesh Jha · All rights reserved.</div>
 </footer>
 
-<script>
-/* Paste your deployed Google Apps Script Web App URL here. */
-const APPS_SCRIPT_URL = "PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
-
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50),{passive:true});
-
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
-},{threshold:.12});
-document.querySelectorAll('.reveal,.stagger').forEach(el=>observer.observe(el));
-
-const cursor=document.querySelector('.cursor');
-document.addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
-document.querySelectorAll('a,button,.shape').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cursor.style.width='34px';cursor.style.height='34px'});
-  el.addEventListener('mouseleave',()=>{cursor.style.width='18px';cursor.style.height='18px'});
-});
-
-document.getElementById('send').addEventListener('click',async()=>{
-  const type=document.getElementById('type').value, shape=document.getElementById('shape').value;
-  const size=document.getElementById('size').value, quality=document.getElementById('quality').value, notes=document.getElementById('notes').value;
-
-  const name = prompt("Your name");
-  if (!name) return;
-  const number = prompt("Mobile / WhatsApp number");
-  if (!number) return;
-  const company = prompt("Company / jewellery store name");
-  if (!company) return;
-  const email = prompt("Email address");
-  if (!email) return;
-
-  const inquiry = {
-    timestamp: new Date().toISOString(),
-    name, number, company, email,
-    diamondType: type, shape, size,
-    colourClarity: quality,
-    inquiry: notes || "Please suggest suitable options."
-  };
-
-  /* Save to Google Sheets when the endpoint is configured. */
-  if (APPS_SCRIPT_URL && !APPS_SCRIPT_URL.includes("PASTE_GOOGLE")) {
-    try {
-      await fetch(APPS_SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {"Content-Type":"text/plain;charset=utf-8"},
-        body: JSON.stringify(inquiry)
-      });
-    } catch(e) {}
-  }
-
-  /* Show the confirmation immediately after submission. */
-  document.getElementById('thankyou').classList.add('open');
-  document.getElementById('thankyou').setAttribute('aria-hidden','false');
-
-  const msg=`Hi Firecut, I have a solitaire requirement.%0A%0AName: ${encodeURIComponent(name)}%0AMobile: ${encodeURIComponent(number)}%0ACompany: ${encodeURIComponent(company)}%0AEmail: ${encodeURIComponent(email)}%0AType: ${encodeURIComponent(type)}%0AShape: ${encodeURIComponent(shape)}%0ACarat/Size: ${encodeURIComponent(size||'Not specified')}%0AColour & Clarity: ${encodeURIComponent(quality||'Not specified')}%0ARequirement: ${encodeURIComponent(notes||'Please suggest suitable options.')}`;
-  window.open('https://web.whatsapp.com/send?phone=919920169168&text='+msg,'_blank');
-});
-
-document.querySelectorAll('.shape').forEach(card=>{
-  card.addEventListener('click',()=>{
-    const shape=card.querySelector('span').textContent;
-    document.getElementById('shape').value=shape;
-    document.getElementById('finder').scrollIntoView({behavior:'smooth'});
-  });
-});
-</script>
-
-<div class="thankyou" id="thankyou" aria-hidden="true">
-  <div class="thankyou-backdrop"></div>
-  <div class="thankyou-card">
-    <div class="thankyou-mark">✓</div>
-    <div class="eyebrow">Requirement received</div>
+<div class="modal" id="thankyou">
+  <div class="modal-bg"></div>
+  <div class="modal-card">
+    <button class="close" id="closeModal">×</button>
+    <div class="modal-mark">◆</div>
+    <div class="eyebrow dark">Firecut Diamonds</div>
     <h2>Thank You.</h2>
     <p>Your solitaire requirement has been received.</p>
     <strong>We will get back to you within 30 minutes with your requirement.</strong>
-    <span>Our team will review the details and come back with the right options and final pricing.</span>
-    <button class="btn primary" id="closeThankyou">Continue Exploring →</button>
+    <p>Our team will review the details and come back with the right options and final pricing.</p>
   </div>
 </div>
 
+<script>
+const APPS_SCRIPT_URL="PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+const nav=document.getElementById("nav");
+addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")});
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+const shapeSelect=document.getElementById("shapeSelect");
+document.querySelectorAll(".shape").forEach(el=>{
+ el.addEventListener("click",()=>{
+   document.querySelectorAll(".shape").forEach(x=>x.classList.remove("active"));
+   el.classList.add("active");
+   shapeSelect.value="Shape — "+el.dataset.shape;
+   document.getElementById("inquiry").scrollIntoView({behavior:"smooth",block:"center"});
+ });
+});
+
+const form=document.getElementById("inquiryForm");
+const modal=document.getElementById("thankyou");
+document.getElementById("closeModal").onclick=()=>modal.classList.remove("open");
+document.querySelector(".modal-bg").onclick=()=>modal.classList.remove("open");
+
+form.addEventListener("submit",async e=>{
+ e.preventDefault();
+ const data=Object.fromEntries(new FormData(form).entries());
+ const payload={
+   timestamp:new Date().toISOString(),
+   name:data.name,mobile:data.mobile,company:data.company,email:data.email,
+   diamondType:data.type,shape:data.shape,carat:data.carat,
+   colourClarity:data.colour,details:data.details
+ };
+ let msg=`Hello Firecut, I have a diamond requirement.%0A%0AName: ${encodeURIComponent(data.name)}%0AMobile: ${encodeURIComponent(data.mobile)}%0ACompany: ${encodeURIComponent(data.company)}%0AEmail: ${encodeURIComponent(data.email)}%0ADiamond Type: ${encodeURIComponent(data.type)}%0AShape: ${encodeURIComponent(data.shape)}%0ACarat / Size: ${encodeURIComponent(data.carat||"-")}%0AColour & Clarity: ${encodeURIComponent(data.colour||"-")}%0ARequirement: ${encodeURIComponent(data.details||"-")}`;
+ try{
+   if(APPS_SCRIPT_URL && !APPS_SCRIPT_URL.includes("PASTE_")){
+     await fetch(APPS_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+   }
+ }catch(err){}
+ modal.classList.add("open");
+ form.reset();
+ setTimeout(()=>window.open("https://web.whatsapp.com/send?phone=919920169168&text="+msg,"_blank"),500);
+});
+</script>
 </body>
 </html>
