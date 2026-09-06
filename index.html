@@ -14,16 +14,15 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",Arial,sans-serif}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}img{display:block;max-width:100%}
 .nav{position:fixed;top:0;left:0;right:0;height:86px;z-index:50;padding:14px 4vw;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(0,0,0,.72),transparent);transition:.4s}
 .nav.scrolled{background:rgba(5,5,5,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:12px}.brand img{width:54px;height:54px;object-fit:contain}.brand strong{display:block;font-family:"Cormorant Garamond",serif;font-size:32px;letter-spacing:.12em;font-weight:600}.brand small{display:block;font-size:8px;letter-spacing:.22em;color:var(--gold2);margin-top:3px}
+.brand{display:flex;align-items:center;gap:12px}.brand img{width:58px;height:58px;object-fit:contain;filter:drop-shadow(0 5px 16px rgba(227,189,108,.28))}.brand strong{display:block;font-family:"Cormorant Garamond",serif;font-size:32px;letter-spacing:.12em;font-weight:600}.brand small{display:block;font-size:8px;letter-spacing:.22em;color:var(--gold2);margin-top:3px}
 .links{display:flex;gap:28px;font-size:11px}.links a{opacity:.85}.links a:hover{color:var(--gold2)}
 .wa{border:1px solid var(--gold);border-radius:99px;padding:12px 18px;color:var(--gold2);font-size:10px;letter-spacing:.13em;text-transform:uppercase}
 .hero{position:relative;min-height:100svh;overflow:hidden;display:flex;align-items:center;background:#050505}.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:contrast(1.08) saturate(.88);opacity:.8}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.73) 40%,rgba(0,0,0,.16) 74%,rgba(0,0,0,.58) 100%),linear-gradient(0deg,rgba(0,0,0,.76),transparent 45%,rgba(0,0,0,.32))}
-.hero-copy{position:relative;z-index:3;width:58%;padding:150px 4vw 90px}.eyebrow{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px}
+.hero-copy{position:relative;z-index:3;width:58%;padding:170px 4vw 90px}.eyebrow{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px}
 .hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(65px,8vw,126px);line-height:.78;letter-spacing:-.04em;font-weight:500;margin:0}.hero h1 em{display:block;color:var(--gold2);font-size:.68em;margin-top:22px}
 .hero p{max-width:560px;color:#ded3cd;font-size:14px;line-height:1.75;margin:30px 0}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 24px;border-radius:99px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:.3s}.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1b1005;box-shadow:0 15px 40px rgba(227,189,108,.22)}.btn.outline{border:1px solid var(--gold);color:var(--gold2);background:rgba(0,0,0,.18)}.btn:hover{transform:translateY(-4px)}
 .trust{display:flex;gap:30px;margin-top:40px;flex-wrap:wrap}.trust b{font-family:"Cormorant Garamond",serif;font-size:27px;color:var(--gold2);margin-right:6px}.trust span{font-size:9px;color:#c3b8b2}
-.hero-brand{position:absolute;z-index:4;left:4vw;top:18%;width:360px;pointer-events:none;opacity:.95}.hero-brand img{width:210px;filter:drop-shadow(0 10px 30px rgba(227,189,108,.25))}
 .hero-sign{position:absolute;right:5vw;bottom:9%;z-index:5;text-align:right}.hero-sign b{font-family:"Cormorant Garamond",serif;color:var(--gold2);font-style:italic;font-size:42px;font-weight:500}.hero-sign small{display:block;font-size:9px;letter-spacing:.25em}
 .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#080808;overflow:hidden;white-space:nowrap}.track{display:inline-flex;gap:65px;padding:15px 0;font-size:9px;letter-spacing:.28em;color:var(--gold2);animation:marquee 22s linear infinite}@keyframes marquee{to{transform:translateX(-50%)}}
 .section{padding:110px 4vw;background:var(--bg)}.section.goldbg{background:linear-gradient(145deg,#0a0805,#050505)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:48px}.eyebrow.dark{color:var(--gold)}h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(52px,6vw,92px);line-height:.84;margin:0;letter-spacing:-.04em}.lead{max-width:420px;color:var(--muted);font-size:13px;line-height:1.8}
@@ -36,8 +35,7 @@
 footer{padding:50px 4vw 25px;border-top:1px solid var(--line);display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:35px;background:#030303}footer h4{color:var(--gold);font-size:9px;letter-spacing:.25em;text-transform:uppercase}footer p,footer a{font-size:11px;line-height:2;color:#9d918c}.copyright{grid-column:1/-1;border-top:1px solid #222;padding-top:18px;font-size:9px;color:#625957}
 .reveal{opacity:0;transform:translateY(28px);transition:.8s var(--ease)}.reveal.show{opacity:1;transform:none}
 .modal{display:none;position:fixed;inset:0;z-index:100;place-items:center;padding:20px}.modal.open{display:grid}.modal:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(12px)}.modal-card{position:relative;width:min(550px,100%);background:var(--text);color:#211719;border:1px solid var(--gold);padding:50px;text-align:center}.modal-card h2{color:var(--red)}.modal-card strong{display:block;color:var(--red);margin:15px 0}.close{position:absolute;right:14px;top:10px;border:0;background:none;font-size:26px;color:var(--red)}
-@media(max-width:900px){.nav{height:70px;padding:9px 16px}.links{display:none}.brand img{width:44px;height:44px}.brand strong{font-size:25px}.hero-copy{width:100%;padding:130px 20px 80px}.hero-brand{left:20px;top:13%;width:180px}.hero-brand img{width:100px}.hero-sign{right:20px;bottom:28px}.hero-sign b{font-size:27px}.trust{gap:18px}.section{padding:80px 20px}.section-head{display:block}.section-head .lead{margin-top:22px}.dual,.custom,.founder,.inquiry{grid-template-columns:1fr}.shapes{grid-template-columns:repeat(3,1fr)}.shape{min-height:125px}.custom .visual{height:330px}.founder-photo{height:430px}.field{grid-template-columns:1fr}footer{grid-template-columns:1fr 1fr}}
-</style>
+@media(max-width:900px){.nav{height:70px;padding:9px 16px}.links{display:none}.brand img{width:44px;height:44px}.brand strong{font-size:25px}.hero-copy{width:100%;padding:130px 20px 80px}</style>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -49,7 +47,6 @@ footer{padding:50px 4vw 25px;border-top:1px solid var(--line);display:grid;grid-
 <section class="hero">
 <video autoplay muted loop playsinline preload="metadata"><source src="assets/hero-video.mp4" type="video/mp4"></video>
 <div class="hero:orb"></div>
-<div class="hero-brand"><img src="assets/firecut-logo.png" alt=""></div>
 <div class="hero-copy reveal">
 <div class="eyebrow">Real diamonds · Certified quality · Personal service</div>
 <h1>MORE THAN<br>A DIAMOND.<em>A BRILLIANCE YOU REMEMBER.</em></h1>
