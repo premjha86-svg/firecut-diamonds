@@ -1,22 +1,14 @@
-FIRECUT ATELIER — MOTION WEBSITE
+FIRECUT ULTRA PREMIUM — CINEMATIC HERO
 
-Upload to GitHub Pages:
-index.html
-CNAME
-assets/
-  firecut-logo.png
-  bhavesh-jha.webp
-  firecut-banner.mp4
+This package updates the latest Firecut website with a cinematic landing-page hero sequence:
+1. Diamond appears first
+2. Diamond grows/sparkles
+3. Fire/3D Firecut treatment ignites
+4. Firecut logo resolves
+5. Website overlays FIRECUT / DIAMONDS & JEWELLERY / BY BHAVESH JHA
 
-The hero banner uses the supplied Firecut video.
-The site also includes real-diamond/gemstone/jewellery motion sections using Pexels free-to-use video endpoints:
-- https://www.pexels.com/video/diamond-gemstones-on-a-surface-8971894/
-- https://www.pexels.com/video/a-variety-of-gemstones-7947695/
-- https://www.pexels.com/video/worker-adding-crystals-to-a-jewelry-6262754/
+The original Firecut logo artwork is retained for the brand assets. The hero sequence is bundled locally so GitHub Pages does not depend on a remote hero animation.
 
-Founder information is based on the public LinkedIn profile:
-https://in.linkedin.com/in/bhavesh-jha-3394434b
+Founder image: supplied real Bhavesh Jha photograph.
 
-WhatsApp: 99201 69168
-Email: support@firecutdiamond.com
-Domain: www.firecutdiamond.in
+Upload the contents of this folder to the GitHub repository root, keeping the assets folder intact.
