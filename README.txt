@@ -20,4 +20,3 @@ https://in.linkedin.com/in/bhavesh-jha-3394434b
 WhatsApp: 99201 69168
 Email: support@firecutdiamond.com
 Domain: www.firecutdiamond.in
-Founder image: replaced with the real photograph supplied by Bhavesh Jha in the conversation; no AI-generated portrait is used.
