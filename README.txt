@@ -1,17 +1,21 @@
-FIRECUT — LIGHT LUXURY PERFORMANCE VERSION
-============================================
+FIRECUT DIAMONDS & JEWELLERY — BY BHAVESH JHA
 
-Theme:
-- Light ivory/white base with deep red, wine and soft gold accents.
-- Real founder photo retained.
-- Original Firecut identity retained; cinematic hero animation retained.
-- Diamond shape selector now uses realistic diamond cut imagery.
+Files:
+- index.html — main website
+- why-us.html — Why Firecut / trust & quality positioning
+- knowledge.html — beginner Diamond Knowledge guide
+- order.html — How to Order diamonds & custom jewellery
+- assets/ — logo, founder photo, hero video, poster and diamond shape visuals
+- CNAME — www.firecutdiamond.in
 
-Performance improvements:
-- Hero video recompressed to a lightweight 960px H.264 file with fast-start.
-- Lightweight poster used for instant hero paint.
-- All below-the-fold motion videos lazy-load only near the viewport.
-- External Google Fonts removed to reduce initial network requests.
-- Unused large media assets removed.
+How to publish on GitHub Pages:
+1. Open the firecut-diamonds repository.
+2. Upload the contents of this folder to the repository root (not the folder itself).
+3. Keep CNAME in the root.
+4. Commit the changes.
+5. GitHub Pages should serve the updated site on the configured custom domain.
 
-Upload the contents of this folder to the GitHub Pages repository root.
+Contact:
+WhatsApp: 99201 69168
+Email: support@firecutdiamond.com
+Website: www.firecutdiamond.in
