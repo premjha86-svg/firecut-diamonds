@@ -1,14 +1,17 @@
-FIRECUT ULTRA PREMIUM — CINEMATIC HERO
+FIRECUT — LIGHT LUXURY PERFORMANCE VERSION
+============================================
 
-This package updates the latest Firecut website with a cinematic landing-page hero sequence:
-1. Diamond appears first
-2. Diamond grows/sparkles
-3. Fire/3D Firecut treatment ignites
-4. Firecut logo resolves
-5. Website overlays FIRECUT / DIAMONDS & JEWELLERY / BY BHAVESH JHA
+Theme:
+- Light ivory/white base with deep red, wine and soft gold accents.
+- Real founder photo retained.
+- Original Firecut identity retained; cinematic hero animation retained.
+- Diamond shape selector now uses realistic diamond cut imagery.
 
-The original Firecut logo artwork is retained for the brand assets. The hero sequence is bundled locally so GitHub Pages does not depend on a remote hero animation.
+Performance improvements:
+- Hero video recompressed to a lightweight 960px H.264 file with fast-start.
+- Lightweight poster used for instant hero paint.
+- All below-the-fold motion videos lazy-load only near the viewport.
+- External Google Fonts removed to reduce initial network requests.
+- Unused large media assets removed.
 
-Founder image: supplied real Bhavesh Jha photograph.
-
-Upload the contents of this folder to the GitHub repository root, keeping the assets folder intact.
+Upload the contents of this folder to the GitHub Pages repository root.
