@@ -1,0 +1,22 @@
+FIRECUT WEBSITE → GOOGLE SHEETS SETUP
+
+The sheet ID is already configured in google-apps-script.gs:
+1Tak8wX2bjyLlFndXTc1Oq2Vw33BYBzL_QC-XhervoNA
+
+1. Open the target Google Sheet using the same Google account that will deploy Apps Script.
+2. Extensions → Apps Script.
+3. Paste the contents of google-apps-script.gs.
+4. Save.
+5. Deploy → New deployment → Web app.
+6. Execute as: Me.
+7. Who has access: Anyone.
+8. Deploy and authorize when Google asks.
+9. Copy the Web app URL (https://script.google.com/macros/s/.../exec).
+10. Open index.html and replace:
+   PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE
+   with that Web app URL.
+11. Upload the updated index.html + google-apps-script.gs + assets to GitHub.
+
+Every website inquiry will append one row to the “Website Inquiries” sheet with timestamp, name, mobile, company, email, diamond type, certification preference, shape, carat/size, colour/clarity, detailed inquiry and source.
+
+The website still opens WhatsApp after submitting, so the lead is sent to the sheet and WhatsApp workflow together.
