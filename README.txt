@@ -22,3 +22,8 @@ firecutdiamond.in
 No cart, checkout or online payment is included. WhatsApp is the primary enquiry channel.
 
 Legal/safety note: response and delivery timings are targets and depend on availability, production and logistics. Certification/hallmark references are contextual; actual documents must relate to the actual item supplied. The website should receive a final legal/business review for the exact operating entity, address, GST/tax, invoicing, returns and privacy implementation before commercial launch.
+
+V14 / next build additions
+- Replace opening cinematic with assets/firecut-opening-new.mp4.
+- Dedicated pages: natural-diamonds.html, lab-grown-diamonds.html, gemstones.html, jewellery.html, custom-jewellery.html, shapes.html, knowledge.html, founder.html, inquiry.html.
+- inquiry.js contains a placeholder for the Google Apps Script Web App /exec URL. Replace PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE after deployment.

@@ -10,7 +10,7 @@ document.querySelectorAll('[data-wa]').forEach(el=>{el.addEventListener('click',
   overlay.innerHTML=`
     <div class="cinematic-video-wrap">
       <video class="cinematic-video" autoplay muted playsinline preload="auto">
-        <source src="assets/firecut-opening.mp4" type="video/mp4">
+        <source src="assets/firecut-opening-new.mp4" type="video/mp4">
       </video>
       <div class="cinematic-shade"></div>
       <div class="cinematic-copy">
