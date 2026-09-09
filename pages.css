@@ -3,3 +3,10 @@
 /* Gemstone showcase video: clean edge-to-edge, no shadow or circular overlay */
 .gemstone-hero video{filter:none;box-shadow:none;border-radius:0}
 .gemstone-hero:after{background:linear-gradient(90deg,rgba(8,5,4,.58),rgba(8,5,4,.16),rgba(8,5,4,.40))}
+
+/* V19 media cleanup: no circular play overlay or video shadows. */
+.play-ring{display:none!important}
+.media-card,.media-card video,.media-card img,.lesson-video,.lesson-video video,.knowledge-video,.knowledge-video video,.motion-hero-media,.motion-hero-media video,.trusted-delivery-video,.trusted-delivery-video video,.video-strip,.video-strip video{box-shadow:none!important;border-radius:0!important}
+.gemstone-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.gemstone-hero:after{background:linear-gradient(90deg,rgba(8,5,4,.55),rgba(8,5,4,.12),rgba(8,5,4,.38))}
+.inquiry-model-background{object-position:center}
