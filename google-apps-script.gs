@@ -1,7 +1,2 @@
-function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Inquiries') || SpreadsheetApp.getActiveSpreadsheet().insertSheet('Inquiries');
-  if (sheet.getLastRow() === 0) sheet.appendRow(['Timestamp','Name','Mobile','Company','Requirement','4Cs','Carat','Colour','Clarity','Cut','Shape','Certificate','Detailed Inquiry','Source']);
-  var d = JSON.parse(e.postData.contents || '{}');
-  sheet.appendRow([new Date(),d.name||'',d.mobile||'',d.company||'',d.requirement||'',d.fourcs||'',d.carat||'',d.colour||'',d.clarity||'',d.cut||'',d.shape||'',d.certificate||'',d.details||'',d.source||'Website Inquiry']);
-  return ContentService.createTextOutput(JSON.stringify({ok:true})).setMimeType(ContentService.MimeType.JSON);
-}
+function doGet(){return ContentService.createTextOutput(JSON.stringify({ok:true,service:'FireCut Inquiry'})).setMimeType(ContentService.MimeType.JSON);}
+function doPost(e){var ss=SpreadsheetApp.getActiveSpreadsheet();var sheet=ss.getSheetByName('Inquiries')||ss.insertSheet('Inquiries');if(sheet.getLastRow()===0)sheet.appendRow(['Timestamp','Name','Mobile','Company','Requirement','4Cs','Carat','Colour','Clarity','Cut','Shape','Certificate','Detailed Inquiry','Source']);var d=(e&&e.parameter)?e.parameter:{};if((!d.name||Object.keys(d).length===0)&&e&&e.postData&&e.postData.contents){try{d=JSON.parse(e.postData.contents||'{}')}catch(err){}}sheet.appendRow([new Date(),d.name||'',d.mobile||'',d.company||'',d.requirement||'',d.fourcs||'',d.carat||'',d.colour||'',d.clarity||'',d.cut||'',d.shape||'',d.certificate||'',d.details||'',d.source||'Website Inquiry']);return ContentService.createTextOutput(JSON.stringify({ok:true})).setMimeType(ContentService.MimeType.JSON);}
