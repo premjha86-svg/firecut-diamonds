@@ -1,30 +1,24 @@
-FIRECUT DIAMONDS & JEWELLERY — V3
+FIRECUT DIAMONDS & JEWELLERY — V11 MEDIA FIXED
 By Bhavesh Jha
 
-LEAD-GENERATION WEBSITE ONLY
-No cart, no checkout, no online payment.
+THIS VERSION FIXES THE MEDIA/FOUNDING-PAGE ISSUE
 
-VIDEO MAPPING
-- assets/natural-solitaire-showcase.mp4 = uploaded solitaire footage, used for Natural Diamonds / visual showcase.
-- assets/non-certified-showcase.mp4 = uploaded macro footage, used in the Non-Certified Diamonds section and as atmospheric product-card footage.
-- Gemstones use a lightweight visual treatment so the supplied diamond footage is not falsely presented as a gemstone video.
+Media assignments:
+1. assets/top-motion-banner.mp4 — supplied diamond video used as the TOP motion banner.
+2. assets/trusted-delivery.mp4 — supplied FireCut process/delivery video used only in the Trusted Delivery section.
+3. assets/diamond-shapes.jpg — supplied shapes artwork used in the dedicated Shapes section.
+4. assets/bridal-necklace.jpg — bridal diamond necklace visual used in Jewellery sections.
+5. assets/founder-bhavesh-jha.png — Bhavesh Jha photo used on the dedicated Founder page and Founder card; the old logo-only founder card has been removed.
+6. assets/firecut-opening.mp4 — cinematic opening film.
+7. assets/natural-solitaire-showcase.mp4 — natural diamond product card only.
+8. assets/non-certified-showcase.mp4 — non-certified diamond section only.
 
-IMPORTANT
-- Replace WA_NUMBER in script.js with the actual WhatsApp number before launch.
-- Contact number in index.html is still a placeholder.
-- Demo certificate cards are clearly marked DEMO ONLY / EDUCATIONAL and must not be represented as genuine certificates.
-- Keep certification, grading and hallmark claims tied to the actual stone/jewellery and available documentation.
+IMPORTANT GITHUB UPLOAD
+Keep the exact folder structure. All files in /assets must be uploaded to the repository's root-level assets/ folder. index.html, founder.html, styles.css, script.js, CNAME and the other HTML files must remain at repository root.
 
-DEPLOY
-Upload the contents of this folder to GitHub Pages or another static host.
+CNAME
+firecutdiamond.in
 
+No cart, checkout or online payment is included. WhatsApp is the primary enquiry channel.
 
-V5 UPDATE — HOW TO USE
-- Added top-header How to Use navigation.
-- Added WhatsApp-first instructions for jewellery design enquiries and diamond specifications.
-- Jewellery target response: 30 minutes; diamond target response: 15 minutes.
-- Includes examples for 1 Carat / E-VVS1 / 3EX / Fluorescence None / GIA or IGI, plus size-colour-clarity ranges.
-- Replace WA_NUMBER in script.js with the actual WhatsApp number before launch.
-
-WHATSAPP
-All WhatsApp CTAs now land on +91 99201 69168 (919920169168).
+Legal/safety note: response and delivery timings are targets and depend on availability, production and logistics. Certification/hallmark references are contextual; actual documents must relate to the actual item supplied. The website should receive a final legal/business review for the exact operating entity, address, GST/tax, invoicing, returns and privacy implementation before commercial launch.
